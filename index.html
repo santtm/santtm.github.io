@@ -16,15 +16,9 @@
     .main { margin-left: 240px; padding: 40px; max-width: 800px; }
     h1 { font-size: 36px; margin-bottom: 10px; }
     h2 { font-size: 22px; color: #666; margin-bottom: 30px; }
-    .project {
-      background: white; padding: 20px; margin-bottom: 30px; border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .project img, .project video { width: 100%; border-radius: 8px; margin-bottom: 15px; }
-    .project h3 { margin: 0 0 10px; }
-    .project p { margin: 0 0 15px; color: #444; }
-    .project a { color: #007acc; text-decoration: none; }
-    .project a:hover { text-decoration: underline; }
+    img, video { max-width: 100%; margin: 15px 0; }
+    a { color: #007acc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -43,36 +37,44 @@
       <h1>SANTIAGO</h1>
       <h2>Projetos / Experimentos</h2>
 
-      <div class="project" id="projeto0">
-        <img src="imagem1.png" alt="Conjuntos Dominantes">
-        <h3>Conjuntos Dominantes em Grafos</h3>
-        <p>Um estudo sobre cotas e relações de grafos em classes de grafos planares.</p>
+      <!-- Projeto 0 -->
+      <p id="projeto0">
+        projeto 0) <br>
+        <img src="imagem1.png" alt="Conjuntos Dominantes"> <br>
+        nome: <b>Conjuntos Dominantes em Grafos</b>. <br>
+        resumo: Um estudo sobre cotas e relações de grafos em clásses de grafos planares. <br>
         <a href="projeto0.html">Ver mais</a>
-      </div>
+      </p>
 
-      <div class="project" id="projeto1">
+      <!-- Projeto 1 -->
+      <p id="projeto1">
+        projeto 1) <br>
         <video controls>
-          <source src="video1.mp4" type="video/mp4">
+          <source src="src/interpolacao_6imgs_retrained.mp4" type="video/mp4">
           Seu navegador não suporta vídeos.
-        </video>
-        <h3>AutoEncoders: Interpolação controlada no espaço latente</h3>
-        <p>Dataset MNIST, interpolação no espaço latente controlada de modo a gerar vídeos com características mais humanas.</p>
+        </video> <br>
+        nome: <b>AutoEncoders: Interpolação controlada no espaço latente</b>. <br>
+        resumo: Dataset MNIST, interpolação no espaço latente controlada de modo a gerar vídeos com características mais humanas. <br>
         <a href="projeto1.html">Ver mais</a>
-      </div>
+      </p>
 
-      <div class="project" id="projeto2">
-        <img src="imagem2.png" alt="Mapas Auto-Organizáveis">
-        <h3>Mapa Auto Organizáveis: Grids genéricas</h3>
-        <p>Usando grids de grafos genéricos ao invés da clássica NxM grid.</p>
+      <!-- Projeto 2 -->
+      <p id="projeto2">
+        projeto 2) <br>
+        <img src="imagem2.png" alt="Mapas Auto Organizáveis"> <br>
+        nome: <b>Mapa Auto Organizáveis: Grids genéricas</b>. <br>
+        resumo: Usando grids de grafos genéricos ao invés da clássica NxM grid. <br>
         <a href="projeto2.html">Ver mais</a>
-      </div>
+      </p>
 
-      <div class="project" id="projeto3">
-        <img src="imagem3.png" alt="AdaBoost">
-        <h3>AdaBoost: Diferente classificador</h3>
-        <p>Propondo diferentes stumps de classificação para árvores.</p>
+      <!-- Projeto 3 -->
+      <p id="projeto3">
+        projeto 3) <br>
+        <img src="imagem3.png" alt="AdaBoost"> <br>
+        nome: <b>AdaBoost: Diferente classificador</b>. <br>
+        resumo: Propondo diferentes stumps de classificação para árvores. <br>
         <a href="projeto3.html">Ver mais</a>
-      </div>
+      </p>
     </div>
   </div>
 </body>

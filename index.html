@@ -5,61 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SANTIAGO</title>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #ffffff; color: #333; }
-    .container { display: flex; }
-    .sidebar {
-      width: 220px; background: #222; color: white; padding: 20px; height: 100vh; position: fixed;
+    body { 
+      margin: 0; 
+      font-family: Arial, sans-serif; 
+      background: #ffffff; 
+      color: #333; 
     }
-    .sidebar h2 { font-size: 20px; margin-bottom: 20px; }
-    .sidebar a { color: #aaa; text-decoration: none; display: block; margin: 10px 0; }
-    .sidebar a:hover { color: white; }
-    .main { margin-left: 240px; padding: 40px; max-width: 800px; }
+    .main { 
+      padding: 40px; 
+      max-width: 800px; 
+      margin: 0 auto; /* centraliza a coluna */
+    }
     h1 { font-size: 36px; margin-bottom: 10px; }
     h2 { font-size: 22px; color: #666; margin-bottom: 30px; }
-    img, video { max-width: 100%; margin: 15px 0; }
-    a { color: #007acc; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    img, video { 
+      max-width: 100%; 
+      margin: 15px 0; 
+      display: block; 
+    }
+    a { 
+      color: #007acc; 
+      text-decoration: none; 
+    }
+    a:hover { 
+      text-decoration: underline; 
+    }
   </style>
 </head>
 <body>
-    <!-- Main content -->
-    <div class="main">
-      <h1>SANTIAGO</h1>
-      <h2>Projetos / Experimentos</h2>
+  <div class="main">
+    <h1>SANTIAGO</h1>
+    <h2>Projetos / Experimentos</h2>
 
-      <!-- Projeto 0 -->
-      <p id="CDM">
-        <b>Conjuntos Dominantes em Grafos</b>. <br>
-        <a href="pages/dom_grafos.html">
-        <img src="src/miniatura_dom_grafos.png" alt="Conjuntos Dominantes"> <br> </a>
-        Um estudo sobre cotas e relações de grafos em clásses de grafos planares. <br>
-      </p>
+    <!-- Projeto 0 -->
+    <p id="CDM">
+      <b>Conjuntos Dominantes em Grafos</b><br>
+      <a href="pages/dom_grafos.html">
+        <img src="src/miniatura_dom_grafos.png" alt="Conjuntos Dominantes">
+      </a><br>
+      Um estudo sobre cotas e relações de grafos em clásses de grafos planares.<br>
+    </p>
 
-      <!-- Projeto 1 -->
-      <p id="AE">
-        <b>AutoEncoders: Interpolação controlada no espaço latente</b>. <br>
-        <video autoplay loop muted playsinline style="width:100%; display:block;">
-          <a href="pages/autoencoder.html">
-          <source src="src/miniatura_interpolacao_6imgs_retrained.mp4" type="video/mp4">
-          Seu navegador não suporta vídeos.
-        </video> <br> </a>
-          Dataset MNIST, interpolação no espaço latente controlada de modo a gerar vídeos com características mais humanas. <br>
-      </p>
+    <!-- Projeto 1 -->
+    <p id="AE">
+      <b>AutoEncoders: Interpolação controlada no espaço latente</b><br>
+      <video autoplay loop muted playsinline>
+        <source src="src/miniatura_interpolacao_6imgs_retrained.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos.
+      </video><br>
+      Dataset MNIST, interpolação no espaço latente controlada de modo a gerar vídeos com características mais humanas.<br>
+    </p>
 
-      <!-- Projeto 2 -->
-      <p id="SOM">
-        <b>Mapa Auto Organizáveis: Grids genéricas</b>. <br>
-        <img src="imagem2.png" alt="Mapas Auto Organizáveis"> <br>
-        Usando grids de grafos genéricos ao invés da clássica NxM grid. <br>
-      </p>
+    <!-- Projeto 2 -->
+    <p id="SOM">
+      <b>Mapa Auto Organizáveis: Grids genéricas</b><br>
+      <img src="imagem2.png" alt="Mapas Auto Organizáveis"><br>
+      Usando grids de grafos genéricos ao invés da clássica NxM grid.<br>
+    </p>
 
-      <!-- Projeto 3 -->
-      <p id="AdaBoost">
-        <b>AdaBoost: Diferente classificador</b>. <br>
-        <img src="imagem3.png" alt="AdaBoost"> <br>
-        Diferentes stumps de classificação para árvores. <br>
-      </p>
-    </div>
+    <!-- Projeto 3 -->
+    <p id="AdaBoost">
+      <b>AdaBoost: Diferente classificador</b><br>
+      <img src="imagem3.png" alt="AdaBoost"><br>
+      Diferentes stumps de classificação para árvores.<br>
+    </p>
   </div>
 </body>
 </html>

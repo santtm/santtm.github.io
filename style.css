@@ -1,243 +1,149 @@
-
-/* Core Colors 
-Onyx: #393D3F
-White: #FDFDFF
-Pale Silver: #C6C5B9
-Steel Teal: #62929E
-Dark Electric Blue: #546A7B
-*/
-
-.intro_block {
-margin-top: 2rem;
-margin-bottom: 2rem;
+/* palette (variáveis) */
+:root{
+  --onyx: #393D3F;
+  --white: #FDFDFF;
+  --pale-silver: #C6C5B9;
+  --steel-teal: #62929E;
+  --dark-electric-blue: #546A7B;
 }
 
-.intro_block p {
-font-size: 1.1rem;
-margin-bottom: 1.5rem;
-}
-
-.intro_block .logos {
-display: flex;
-justify-content: center;
-gap: 2rem; /* espaço entre as imagens */
-}
-
-.intro_block .logos img {
-max-height: 80px; /* ajusta o tamanho das logos */
-width: auto;
-}
-
-
-h2.current_projects {
-text-align: center;
-margin: 40px 0;
-}
-.project {
-margin-bottom: 40px;
-}
-.proj_desc {
-float: left;
-width: 65%;
-}
-.proj_img {
-float: right;
-width: 30%;
-}
-.proj_img img {
-max-width: 100%;
-height: auto;
-}
-.proj_links {
-margin-top: 10px;
-}
-.proj_tags {
-margin-top: 10px;
-}    
-img {
-display: block;
-margin-left: auto;
-margin-right: auto;
-width: 50%;
-}
-
-h1 {
-display: block;
-margin-left: auto;
-margin-right: auto;
-width: 100%;
-/* padding: 1rem; */
-}
-
-.chap_block {
-padding: 1rem;
-}
-
-.title_block > h1 {
-text-align: center;
-display: block;
-margin-left: auto;
-margin-right: auto;
-padding: 1rem;
-}
-
-.title_block > p {
-text-align: center;
-}
-
-.title_block {
-display: block;
-margin-left: auto;
-margin-right: auto;
-width: 80%;
-padding: 1rem;
-}
-
-.body_block{
-/* padding-bottom: 3rem; */
-}
-
-.navbar-brand {
-margin-left: 5rem;
-}
-.btn-primary,
-.btn-primary:visited{
-background-color: #62929E;
-border-color: #546A7B;
-}
-
-.btn-primary:active {
-background-color: #546A7B;
-}
-
-.btn-primary:focus{
-background: #546A7B;
-border-color: #62929E;
-}
-
-.btn-primary:hover{
-background-color: #546A7B;
-}
-
-.container{
-background-color: #FDFDFF;
-}
-
-.btn-group-xs > .btn, .btn-xs {
-padding: .45rem .4rem;
-font-size: .875rem;
-line-height: .5;
-border-radius: .2rem;
-margin-bottom: 1rem;
-}
-
+/* Reset / base */
+* { box-sizing: border-box; }
 body {
-background-color: #FDFDFF;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--white);
+  color: var(--onyx);
+}
+a { color: var(--steel-teal); }
+a:hover { text-decoration: underline; }
 
+/* Navbar brand spacing */
+.navbar-brand { margin-left: 3rem; }
+
+/* Intro block (texto + logos) */
+.intro_block {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.intro_block .lead {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+.logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8rem;
+  margin-bottom: 0.75rem;
+}
+.logos img {
+  max-height: 80px;
+  width: auto;
+  display: block;
 }
 
-.first_nav {
-border-left: 1px solid #C6C5B9;
+/* Section title */
+h2.current_projects {
+  text-align: center;
+  margin: 40px 0;
+  color: var(--onyx);
 }
 
-.chapters_toc{
-margin-left: 2rem;
-padding-top: 8rem;
+/* Projects layout */
+.project {
+  padding-left: 1rem;
+  padding-bottom: 2rem;
+  overflow: auto; /* limpa floats automaticamente */
 }
 
-.chapters_toc .btn-group, h6{
-margin-left: 1rem;
-}
-
-.project{
-padding-left: 1rem;
-padding-bottom: 2rem;
-}
-
-/* FLoat the project description and links to the left and set height and width */
+/* descrição à esquerda */
 .project > .proj_desc{
-float: left;
-width: 50%;
-height: 200px;
+  float: left;
+  width: 55%;
+  padding-right: 1rem;
 }
 
-/* Float the project links to the left of the descripts */
-.proj_links a{
-display: inline;
-float: left;
-}
-/* Float the project links to the right of the links and inline */
-.proj_links .proj_tags {
-display: inline;
-float: right;
-}
-
-/* FLoat the project image to the right and set height and width */
+/* imagem à direita - coluna com centralização interna */
 .project > .proj_img {
-width: 40%;
-max-height: 200px;
-
-display: flex;              /* vira flex container */
-justify-content: center;    /* centraliza horizontal */
-align-items: center;        /* centraliza vertical (se quiser) */
-margin-left: auto;          /* força ficar colado à direita da página */
-margin-right: 0;
+  float: right;
+  width: 40%;
+  max-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0;
 }
-
 .proj_img > img {
-width: auto;
-max-height: 200px;
+  width: auto;
+  max-height: 200px;
+  display: block;
 }
 
-/* Set the widths of the tags and links */
+/* links e tags */
+.proj_links {
+  margin-top: 10px;
+  clear: both;
+}
+.proj_links a.btn {
+  margin: 2px;
+  display: inline-block;
+}
 .proj_tags{
-width: 50%;
-text-align: right;
+  display: inline-block;
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+.proj_tags .badge {
+  margin-left: 6px;
 }
 
-.proj_links .btn{
-margin: 2px;
+/* Buttons - cores a partir das variáveis */
+.btn-primary,
+.btn-primary:visited {
+  background-color: var(--steel-teal);
+  border-color: var(--dark-electric-blue);
+}
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover {
+  background-color: var(--dark-electric-blue);
+  border-color: var(--steel-teal);
 }
 
-.left_block{
-margin-left: 0;
-width: 15%;
-background-color: #FDFDFF;
-float: left;
-position: -webkit-sticky; /* Safari */
-position: sticky;
-top: 0;
+/* Container background (se quiser diferenciar) */
+.container {
+  background-color: var(--white);
 }
 
-.right_block{
-margin-right: 0;
-padding-top: 8rem;
-width: 18%;
-background-color: #FDFDFF;
-float: right;
-position: -webkit-sticky; /* Safari */
-position: sticky;
-top: 0;
+/* Small utility tweaks */
+hr {
+  border: 0;
+  border-top: 1px solid var(--pale-silver);
+  margin: 1.5rem 0;
 }
-
-.current_projects{
-text-align: center;
-padding: 2rem;
-}
-
-hr{
-border-color: #C6C5B9;
-}
-
 footer {
-display: flex;
-justify-content: center;
-padding: 1rem;
-background-color: #546A7B;
-color: #FDFDFF;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background-color: var(--dark-electric-blue);
+  color: var(--white);
 }
 
-footer p{
-margin-top: auto;
-margin-bottom: auto
+/* Responsividade: empilha em telas pequenas */
+@media (max-width: 768px) {
+  .navbar-brand { margin-left: 1rem; }
+  .project > .proj_desc,
+  .project > .proj_img {
+    float: none;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .proj_img { margin-top: 0.5rem; margin-bottom: 0.75rem; }
+  .proj_img > img { max-width: 80%; height: auto; }
+  .proj_tags { float: none; width: auto; text-align: center; margin-top: 0.5rem; }
+  .logos img { max-height: 60px; }
 }

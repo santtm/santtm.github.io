@@ -113,7 +113,7 @@ h2.current_projects {
   border-color: var(--steel-teal);
 }
 
-/* Container background (se quiser diferenciar) */
+/* Container background */
 .container {
   background-color: var(--white);
 }

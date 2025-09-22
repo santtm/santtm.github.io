@@ -4,75 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SANTIAGO</title>
-  <style>
-    body { 
-      margin: 0; 
-      font-family: Arial, sans-serif; 
-      background: #ffffff; 
-      color: #333; 
-    }
-    .main { 
-      padding: 40px; 
-      max-width: 800px; 
-      margin: 0 auto;   /* centraliza a coluna */
-      text-align: center; /* centraliza conteúdo interno */
-    }
-    h1 { font-size: 36px; margin-bottom: 10px; }
-    h2 { font-size: 22px; color: #666; margin-bottom: 30px; }
-    img, video { 
-      max-width: 100%; 
-      margin: 15px 0; 
-      display: inline-block; /* agora funciona com text-align */
-    }
-    a { 
-      color: #007acc; 
-      text-decoration: none; 
-    }
-    a:hover { 
-      text-decoration: underline; 
-    }
-  </style>
+  <link rel="shortcut icon" type="image/png" href="src/favicon.png"/>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+          integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+          integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+          crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="main">
-    <h1>SANTIAGO</h1>
-    <h2>Projetos / Experimentos</h2>
 
-   <!-- Projeto 0 -->
-    <p id="CDM">
-      <b>Conjuntos Dominantes Mínimos</b><br>
-      <a href="pages/dom_grafos.html">
-        <img src="src/miniatura_dom_grafos.png" alt="Conjuntos Dominantes">
-      </a><br>
-      Um estudo sobre cotas e relações de dominação em classes de grafos planares.<br>
-    </p>
+  <!-- Navbar -->
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">SANTIAGO</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item"><a class="nav-link" href="https://github.com/">GitHub</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://linkedin.com/">LinkedIn</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Conteúdo -->
+  <div class="container body_block mt-4">
+
+    <h2 class="mb-4">Projetos / Experimentos</h2>
+
+    <!-- Projeto 0 -->
+    <div class="project mb-5">
+      <h3>Conjuntos Dominantes Mínimos</h3>
+      <div class="proj_desc">
+        <p>Um estudo sobre cotas e relações de dominação em classes de grafos planares.</p>
+        <div class="proj_links">
+          <a class="btn btn-primary" role="button" href="pages/dom_grafos.html">Ver Projeto</a>
+          <div class="proj_tags mt-2">
+            <span class="badge badge-secondary">Teoria dos Grafos</span>
+            <span class="badge badge-secondary">Dominação</span>
+          </div>
+        </div>
+      </div>
+      <div class="proj_img mt-3">
+        <img src="src/miniatura_dom_grafos.png" class="img-fluid" alt="Conjuntos Dominantes">
+      </div>
+    </div>
+
+    <hr>
 
     <!-- Projeto 1 -->
-    <p id="AE">
-      <b>AutoEncoderss</b><br>
-        <a href="pages/dom_grafos.html">
-          <img src="src/dataset_mnist_demo_02.png" alt="Conjuntos Dominantes">
-        </a>
-<br>
-  Ajuste de modelos para interpolação no espaço latente visualmente conexa. Dataset MNIST.<br>
-    </p>ataset MNIST, i<!-- Projeto 2 -->
-    <p id="SOM">
-      <b>Mapa Auto Organizáveis</b><br>
-        <a href="pages/dom_grafos.html">
-          <img src="src/Somtraining.png" alt="Mapas Auto Organizáveis"><br>
-      </a>
-      
-        Exploração de mapas genéricos, para além de grid NxM, através de grafos.<br>
-    </p>
+    <div class="project mb-5">
+      <h3>AutoEncoders</h3>
+      <div class="proj_desc">
+        <p>Ajuste de modelos para interpolação no espaço latente visualmente conexa. Dataset MNIST.</p>
+        <div class="proj_links">
+          <a class="btn btn-primary" role="button" href="pages/dom_grafos.html">Ver Projeto</a>
+          <div class="proj_tags mt-2">
+            <span class="badge badge-secondary">Deep Learning</span>
+            <span class="badge badge-secondary">MNIST</span>
+            <span class="badge badge-secondary">Autoencoder</span>
+          </div>
+        </div>
+      </div>
+      <div class="proj_img mt-3">
+        <img src="src/dataset_mnist_demo_02.png" class="img-fluid" alt="AutoEncoders">
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Projeto 2 -->
+    <div class="project mb-5">
+      <h3>Mapas Auto Organizáveis</h3>
+      <div class="proj_desc">
+        <p>Exploração de mapas genéricos, para além de grid NxM, através de grafos.</p>
+        <div class="proj_links">
+          <a class="btn btn-primary" role="button" href="pages/dom_grafos.html">Ver Projeto</a>
+          <div class="proj_tags mt-2">
+            <span class="badge badge-secondary">SOM</span>
+            <span class="badge badge-secondary">Grafos</span>
+          </div>
+        </div>
+      </div>
+      <div class="proj_img mt-3">
+        <img src="src/Somtraining.png" class="img-fluid" alt="Mapas Auto Organizáveis">
+      </div>
+    </div>
+
+    <hr>
 
     <!-- Projeto 3 -->
-    <p id="AdaBoost">
-      <b>AdaBoost</b><br>
-        <a href="pages/dom_grafos.html">
-          <img src="src/adaboost.png" alt="AdaBoost"><br>
-        </a>
-          Diferente stump de classificação em árvores.<br>
-    </p>
+    <div class="project mb-5">
+      <h3>AdaBoost</h3>
+      <div class="proj_desc">
+        <p>Diferente stump de classificação em árvores.</p>
+        <div class="proj_links">
+          <a class="btn btn-primary" role="button" href="pages/dom_grafos.html">Ver Projeto</a>
+          <div class="proj_tags mt-2">
+            <span class="badge badge-secondary">Machine Learning</span>
+            <span class="badge badge-secondary">AdaBoost</span>
+          </div>
+        </div>
+      </div>
+      <div class="proj_img mt-3">
+        <img src="src/adaboost.png" class="img-fluid" alt="AdaBoost">
+      </div>
+    </div>
+
   </div>
+
+  <!-- Rodapé -->
+  <footer class="text-center mt-4 mb-3">
+    <p>Contato: seuemail(a)dominio.com</p>
+  </footer>
+
 </body>
 </html>

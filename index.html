@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SANTIAGO</title>
   <link rel="shortcut icon" type="image/png" href="src/favicon.png"/>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
 
-  <!-- Seu CSS -->
+  <!-- CSS separado -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -33,18 +32,18 @@
   <!-- Container -->
   <div class="container body_block">
 
-    <!-- Bloco de apresentação (texto + 3 logos) -->
-    <div class="intro_block text-center">
+    <!-- Bloco de apresentação -->
+    <div class="intro_block">
       <p class="lead">
         <p><strong>Thiago Santiago de Matos</strong></p>
         <strong>8º período de graduação Bacharelado em Matemática – UFRJ</strong><br>
         Bolsista CNPq na área de Teoria dos Grafos
       </p>
 
-      <div class="logos" aria-hidden="false">
-        <img src="src/UFRJ.png" alt="UFRJ" height="100">
-        <img src="src/IM.png" alt="Instituto de Matemática" height="80">
-        <img src="src/CNPq.png" alt="CNPq" height="70">
+      <div class="logos">
+        <img src="src/UFRJ.png" alt="UFRJ">
+        <img src="src/IM.png" alt="Instituto de Matemática">
+        <img src="src/CNPq.png" alt="CNPq">
       </div>
     </div>
 
@@ -55,21 +54,17 @@
       <h3>Conjuntos Dominantes Mínimos</h3>
       <div class="proj_desc">
         <p>Um estudo sobre cotas e relações de dominação em classes de grafos planares. Projeto de pesquisa de Iniciação Científica sob bolsa CNPq. Orientadora: Márcia Rosana Cerioli.</p>
-
         <div class="proj_links">
           <a class="btn btn-primary" role="button" href="pages/dominacao.html">Ver Projeto</a>
-
           <div class="proj_tags">
             <span class="badge badge-secondary">Teoria dos Grafos</span>
             <span class="badge badge-secondary">Dominação</span>
           </div>
         </div>
       </div>
-
       <div class="proj_img">
         <img src="src/miniatura_dom_grafos.png" alt="Conjuntos Dominantes">
       </div>
-
     </div>
 
     <hr>
@@ -79,10 +74,8 @@
       <h3>AutoEncoders</h3>
       <div class="proj_desc">
         <p>Ajuste de modelos para interpolação no espaço latente visualmente conexa. Dataset MNIST.</p>
-
         <div class="proj_links">
           <a class="btn btn-primary" role="button" href="pages/autoencoders.html">Ver Projeto</a>
-
           <div class="proj_tags">
             <span class="badge badge-secondary">Deep Learning</span>
             <span class="badge badge-secondary">MNIST</span>
@@ -90,11 +83,9 @@
           </div>
         </div>
       </div>
-
       <div class="proj_img">
         <img src="src/dataset_mnist_demo_02.png" alt="AutoEncoders">
       </div>
-
     </div>
 
     <hr>
@@ -104,21 +95,17 @@
       <h3>AdaBoost</h3>
       <div class="proj_desc">
         <p>Diferente stump de classificação em árvores.</p>
-
         <div class="proj_links">
           <a class="btn btn-primary" role="button" href="pages/adaboost.html">Ver Projeto</a>
-
           <div class="proj_tags">
             <span class="badge badge-secondary">Machine Learning</span>
             <span class="badge badge-secondary">AdaBoost</span>
           </div>
         </div>
       </div>
-
       <div class="proj_img">
         <img src="src/adaboost.png" alt="AdaBoost">
       </div>
-
     </div>
 
     <hr>
@@ -128,21 +115,17 @@
       <h3>Mapas Auto Organizáveis</h3>
       <div class="proj_desc">
         <p>Exploração de mapas genéricos, para além de grid NxM, através de grafos.</p>
-
         <div class="proj_links">
           <a class="btn btn-primary" role="button" href="#">Indisponível</a>
-
           <div class="proj_tags">
             <span class="badge badge-secondary">SOM</span>
             <span class="badge badge-secondary">Grafos</span>
           </div>
         </div>
       </div>
-
       <div class="proj_img">
         <img src="src/Somtraining.png" alt="Mapas Auto Organizáveis">
       </div>
-
     </div>
 
   </div> <!-- fecha .container -->
@@ -152,7 +135,7 @@
     <p>Contato: santmatos0@gmail.com</p>
   </footer>
 
-  <!-- JS (colocado no final para performance) -->
+  <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
           integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
           crossorigin="anonymous"></script>
@@ -162,6 +145,5 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
           integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
           crossorigin="anonymous"></script>
-
 </body>
 </html>

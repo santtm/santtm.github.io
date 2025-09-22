@@ -19,28 +19,28 @@ body {
 }
 
 .academic_block h1 {
-  font-size: 2.5rem;  /* aumento do tamanho para destaque */
+  font-size: 2.2rem;
   font-weight: bold;
   color: var(--onyx);
-  margin-bottom: 15px;
-  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
 .academic_block p {
-  font-size: 1.2rem;  /* aumento leve para legibilidade */
+  font-size: 1.1rem;
   font-style: italic;
   color: var(--dark-electric-blue);
-  line-height: 1.6;
+  line-height: 1.5;
   margin-bottom: 25px;
 }
 
-/* Logos acadêmicas */
 .academic_block .logos {
   display: flex;
   justify-content: center;
+  align-items: center; /* garante alinhamento vertical */
   gap: 2rem;
 }
 
+/* Logos acadêmicas */
 .academic_block .logos img {
   height: 80px; /* controle manual do tamanho no topo */
   width: auto;

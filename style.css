@@ -19,24 +19,31 @@ body {
 }
 
 .academic_block h1 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;  /* aumento do tamanho para destaque */
   font-weight: bold;
-  color: #393D3F; /* Onyx */
-  margin-bottom: 10px;
+  color: var(--onyx);
+  margin-bottom: 15px;
+  letter-spacing: 1px;
 }
 
 .academic_block p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;  /* aumento leve para legibilidade */
   font-style: italic;
-  color: #546A7B; /* Dark Electric Blue */
-  line-height: 1.5;
+  color: var(--dark-electric-blue);
+  line-height: 1.6;
   margin-bottom: 25px;
 }
 
+/* Logos acadêmicas */
 .academic_block .logos {
   display: flex;
   justify-content: center;
   gap: 2rem;
+}
+
+.academic_block .logos img {
+  height: 80px; /* controle manual do tamanho no topo */
+  width: auto;
 }
 
 /* Projetos */
@@ -135,4 +142,16 @@ footer p {
 
 hr {
   border-color: var(--pale-silver);
+}
+
+/* Garantir que o rodapé fique no fim da página */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container principal para empurrar o rodapé */
+.container.body_block {
+    min-height: calc(100vh - 100px); /* ajuste se necessário para altura do rodapé */
 }

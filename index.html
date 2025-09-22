@@ -10,238 +10,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-          crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-          integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-          crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-          integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-          crossorigin="anonymous"></script>
 
-  <style>
-    h2.current_projects {
-      text-align: center;
-      margin: 40px 0;
-    }
-    .project {
-      margin-bottom: 40px;
-    }
-    .proj_desc {
-      float: left;
-      width: 65%;
-    }
-    .proj_img {
-      float: right;
-      width: 30%;
-    }
-    .proj_img img {
-      max-width: 100%;
-      height: auto;
-    }
-    .proj_links {
-      margin-top: 10px;
-    }
-    .proj_tags {
-      margin-top: 10px;
-    }
-        /* Core Colors */
-    Onyx: #393D3F
-    White: #FDFDFF
-    Pale Silver: #C6C5B9
-    Steel Teal: #62929E
-    Dark Electric Blue: #546A7B
-    
-    
-    img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
-    }
-    
-    h1 {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        /* padding: 1rem; */
-    }
-    
-    .chap_block {
-        padding: 1rem;
-    }
-    
-    .title_block > h1 {
-        text-align: center;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 1rem;
-    }
-    
-    .title_block > p {
-        text-align: center;
-    }
-    
-    .title_block {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 80%;
-        padding: 1rem;
-    }
-    
-    .body_block{
-        /* padding-bottom: 3rem; */
-    }
-    
-    .navbar-brand {
-        margin-left: 5rem;
-    }
-    .btn-primary,
-    .btn-primary:visited{
-        background-color: #62929E;
-        border-color: #546A7B;
-    }
-    
-    .btn-primary:active {
-        background-color: #546A7B;
-    }
-    
-    .btn-primary:focus{
-        background: #546A7B;
-        border-color: #62929E;
-    }
-    
-    .btn-primary:hover{
-        background-color: #546A7B;
-    }
-    
-    .container{
-        background-color: #FDFDFF;
-    }
-    
-    .btn-group-xs > .btn, .btn-xs {
-      padding: .45rem .4rem;
-      font-size: .875rem;
-      line-height: .5;
-      border-radius: .2rem;
-      margin-bottom: 1rem;
-    }
-    
-    body {
-        background-color: #FDFDFF;
-    
-    }
-    
-    .first_nav {
-       border-left: 1px solid #C6C5B9;
-    }
-    
-    .chapters_toc{
-        margin-left: 2rem;
-        padding-top: 8rem;
-    }
-    
-    .chapters_toc .btn-group, h6{
-        margin-left: 1rem;
-    }
-    
-    .project{
-        padding-left: 1rem;
-        padding-bottom: 2rem;
-    }
-    
-    /* FLoat the project description and links to the left and set height and width */
-    .project > .proj_desc{
-        float: left;
-        width: 50%;
-        height: 200px;
-    }
-    
-    /* Float the project links to the left of the descripts */
-    .proj_links a{
-      display: inline;
-      float: left;
-    }
-    /* Float the project links to the right of the links and inline */
-    .proj_links .proj_tags {
-        display: inline;
-        float: right;
-    }
-    
-    /* FLoat the project image to the right and set height and width */
-    .project > .proj_img {
-        width: 40%;
-        max-height: 200px;
-    
-        display: flex;              /* vira flex container */
-        justify-content: center;    /* centraliza horizontal */
-        align-items: center;        /* centraliza vertical (se quiser) */
-        margin-left: auto;          /* força ficar colado à direita da página */
-        margin-right: 0;
-    }
-    
-    .proj_img > img {
-        width: auto;
-        max-height: 200px;
-    }
-    
-    /* Set the widths of the tags and links */
-    .proj_tags{
-        width: 50%;
-        text-align: right;
-    }
-    
-    .proj_links .btn{
-        margin: 2px;
-    }
-    
-    .left_block{
-        margin-left: 0;
-        width: 15%;
-        background-color: #FDFDFF;
-        float: left;
-        position: -webkit-sticky; /* Safari */
-        position: sticky;
-        top: 0;
-    }
-    
-    .right_block{
-        margin-right: 0;
-        padding-top: 8rem;
-        width: 18%;
-        background-color: #FDFDFF;
-        float: right;
-        position: -webkit-sticky; /* Safari */
-        position: sticky;
-        top: 0;
-    }
-    
-    .current_projects{
-        text-align: center;
-        padding: 2rem;
-    }
-    
-    hr{
-        border-color: #C6C5B9;
-    }
-    
-    footer {
-        display: flex;
-        justify-content: center;
-        padding: 1rem;
-        background-color: #546A7B;
-        color: #FDFDFF;
-    }
-    
-    footer p{
-        margin-top: auto;
-        margin-bottom: auto
-    }
-  </style>
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -260,9 +31,23 @@
 
   <!-- Container -->
   <div class="container body_block">
+
+    <!-- Bloco acadêmico -->
+    <div class="academic_block">
+      <p>
+        8º período de graduação Bacharelado em Matemática UFRJ, bolsista CNPq na área de Teoria de Grafos.
+      </p>
+      <div class="logos">
+        <img src="src/UFRJ.png" alt="UFRJ">
+        <img src="src/IM.png" alt="IM">
+        <img src="src/CNPq.png" alt="CNPq">
+      </div>
+    </div>
+
     <h2 class="current_projects">Projetos / Experimentos</h2>
 
-    <!-- Projeto 0 -->
+    <!-- Projetos continuam aqui -->
+        <!-- Projeto 0 -->
     <div class="project">
       <h3>Conjuntos Dominantes Mínimos</h3>
       <div class="proj_desc">
@@ -344,10 +129,8 @@
       </div>
       <div style="clear: both;"></div>
     </div>
-    
-    </div>
 
-
+  </div>
 
   <!-- Rodapé -->
   <footer class="text-center mt-4 mb-3">

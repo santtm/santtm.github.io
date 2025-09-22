@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SANTIAGO</title>
   <link rel="shortcut icon" type="image/png" href="src/favicon.png"/>
-  <link rel="stylesheet" href="style.css">
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-          crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-          integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-          crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-          integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-          crossorigin="anonymous"></script>
-  
+
+  <!-- Seu CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -32,43 +25,50 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-      <a class="nav nav-link active" href="https://github.com/santtm">GitHub</a>
-      <a class="nav nav-link active" href="www.linkedin.com/in/thiago-santiago-b4858a2bb">LinkedIn</a>
+      <a class="nav nav-link active" href="https://github.com/santtm" target="_blank" rel="noopener">GitHub</a>
+      <a class="nav nav-link active" href="https://www.linkedin.com/in/thiago-santiago-b4858a2bb" target="_blank" rel="noopener">LinkedIn</a>
     </ul>
   </nav>
 
   <!-- Container -->
   <div class="container body_block">
-        <!-- Bloco de apresentação -->
-      <p><strong>8º período de graduação Bacharelado em Matemática - UFRJ</strong><br>
-         Bolsista CNPq na área de Teoria dos Grafos</p>
 
-      <div class="logos">
+    <!-- Bloco de apresentação (texto + 3 logos) -->
+    <div class="intro_block text-center">
+      <p class="lead">
+        <strong>8º período de graduação Bacharelado em Matemática – UFRJ</strong><br>
+        Bolsista CNPq na área de Teoria dos Grafos
+      </p>
+
+      <div class="logos" aria-hidden="false">
         <img src="src/UFRJ.png" alt="UFRJ">
         <img src="src/IM.png" alt="Instituto de Matemática">
         <img src="src/CNPq.png" alt="CNPq">
       </div>
     </div>
+
     <h2 class="current_projects">Projetos / Experimentos</h2>
-    <h1 class="current_projects">Bacharelado em Matemática - UFRJ</h1>
 
     <!-- Projeto 0 -->
     <div class="project">
       <h3>Conjuntos Dominantes Mínimos</h3>
       <div class="proj_desc">
-        <p>Um estudo sobre cotas e relações de dominação em classes de grafos planares. Projeto de pesquisa de Iniciação Científica sob bolsa CNPq. Orientadora Márcia Rosana Cerioli.</p>
+        <p>Um estudo sobre cotas e relações de dominação em classes de grafos planares. Projeto de pesquisa de Iniciação Científica sob bolsa CNPq. Orientadora: Márcia Rosana Cerioli.</p>
+
         <div class="proj_links">
           <a class="btn btn-primary" role="button" href="pages/dominacao.html">Ver Projeto</a>
+
           <div class="proj_tags">
             <span class="badge badge-secondary">Teoria dos Grafos</span>
             <span class="badge badge-secondary">Dominação</span>
           </div>
         </div>
       </div>
+
       <div class="proj_img">
         <img src="src/miniatura_dom_grafos.png" alt="Conjuntos Dominantes">
       </div>
-      <div style="clear: both;"></div>
+
     </div>
 
     <hr>
@@ -78,8 +78,10 @@
       <h3>AutoEncoders</h3>
       <div class="proj_desc">
         <p>Ajuste de modelos para interpolação no espaço latente visualmente conexa. Dataset MNIST.</p>
+
         <div class="proj_links">
           <a class="btn btn-primary" role="button" href="pages/autoencoders.html">Ver Projeto</a>
+
           <div class="proj_tags">
             <span class="badge badge-secondary">Deep Learning</span>
             <span class="badge badge-secondary">MNIST</span>
@@ -87,10 +89,11 @@
           </div>
         </div>
       </div>
+
       <div class="proj_img">
         <img src="src/dataset_mnist_demo_02.png" alt="AutoEncoders">
       </div>
-      <div style="clear: both;"></div>
+
     </div>
 
     <hr>
@@ -100,46 +103,64 @@
       <h3>AdaBoost</h3>
       <div class="proj_desc">
         <p>Diferente stump de classificação em árvores.</p>
+
         <div class="proj_links">
           <a class="btn btn-primary" role="button" href="pages/adaboost.html">Ver Projeto</a>
+
           <div class="proj_tags">
             <span class="badge badge-secondary">Machine Learning</span>
             <span class="badge badge-secondary">AdaBoost</span>
           </div>
         </div>
       </div>
+
       <div class="proj_img">
         <img src="src/adaboost.png" alt="AdaBoost">
       </div>
-      <div style="clear: both;"></div>
+
     </div>
 
-  <hr>
+    <hr>
 
     <!-- Projeto 3 -->
     <div class="project">
       <h3>Mapas Auto Organizáveis</h3>
       <div class="proj_desc">
         <p>Exploração de mapas genéricos, para além de grid NxM, através de grafos.</p>
+
         <div class="proj_links">
           <a class="btn btn-primary" role="button" href="index.html">Indisponível</a>
+
           <div class="proj_tags">
             <span class="badge badge-secondary">SOM</span>
             <span class="badge badge-secondary">Grafos</span>
           </div>
         </div>
       </div>
+
       <div class="proj_img">
         <img src="src/Somtraining.png" alt="Mapas Auto Organizáveis">
       </div>
-      <div style="clear: both;"></div>
+
     </div>
-  </div>
+
+  </div> <!-- fecha .container -->
 
   <!-- Rodapé -->
   <footer class="text-center mt-4 mb-3">
-    <p>Contato: seuemail(a)dominio.com</p>
+    <p>Contato: santmatos0@gmail.com</p>
   </footer>
+
+  <!-- JS (colocado no final para performance) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+          integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+          integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+          crossorigin="anonymous"></script>
 
 </body>
 </html>

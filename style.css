@@ -46,6 +46,20 @@ body {
   width: auto;
 }
 
+.logos {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* centraliza verticalmente */
+    gap: 2rem;
+}
+
+.logo img {
+    height: 100%;
+    width: auto;
+    display: block;
+    object-fit: contain; /* força a imagem a preencher o contêiner sem cortar */
+}
+
 /* Projetos */
 h2.current_projects {
   text-align: center;

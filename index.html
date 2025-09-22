@@ -173,16 +173,20 @@
     }
     
     /* FLoat the project image to the right and set height and width */
-    .project > .proj_img{
+    .project > .proj_img {
         width: 40%;
-        float: right;
         max-height: 200px;
+    
+        display: flex;              /* vira flex container */
+        justify-content: center;    /* centraliza horizontal */
+        align-items: center;        /* centraliza vertical (se quiser) */
+        margin-left: auto;          /* força ficar colado à direita da página */
+        margin-right: 0;
     }
+    
     .proj_img > img {
-        width:auto;
+        width: auto;
         max-height: 200px;
-        display: block;
-        /* text-align: right; */
     }
     
     /* Set the widths of the tags and links */
@@ -247,11 +251,10 @@
       <li class="nav-item active">
         <a class="nav navbar-brand" href="#">SANTIAGO</a>
       </li>
-      <li class="nav-item"><a class="nav nav-link active" href="#">Projetos</a></li>
     </ul>
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-      <a class="nav nav-link active" href="https://github.com/">GitHub</a>
-      <a class="nav nav-link active" href="https://linkedin.com/">LinkedIn</a>
+      <a class="nav nav-link active" href="https://github.com/santtm">GitHub</a>
+      <a class="nav nav-link active" href="www.linkedin.com/in/thiago-santiago-b4858a2bb">LinkedIn</a>
     </ul>
   </nav>
 
@@ -265,7 +268,7 @@
       <div class="proj_desc">
         <p>Um estudo sobre cotas e relações de dominação em classes de grafos planares.</p>
         <div class="proj_links">
-          <a class="btn btn-primary" role="button" href="pages/dom_grafos.html">Ver Projeto</a>
+          <a class="btn btn-primary" role="button" href="pages/dominacao.html">Ver Projeto</a>
           <div class="proj_tags">
             <span class="badge badge-secondary">Teoria dos Grafos</span>
             <span class="badge badge-secondary">Dominação</span>
@@ -286,7 +289,7 @@
       <div class="proj_desc">
         <p>Ajuste de modelos para interpolação no espaço latente visualmente conexa. Dataset MNIST.</p>
         <div class="proj_links">
-          <a class="btn btn-primary" role="button" href="pages/dom_grafos.html">Ver Projeto</a>
+          <a class="btn btn-primary" role="button" href="pages/autoencoders.html">Ver Projeto</a>
           <div class="proj_tags">
             <span class="badge badge-secondary">Deep Learning</span>
             <span class="badge badge-secondary">MNIST</span>
@@ -304,11 +307,33 @@
 
     <!-- Projeto 2 -->
     <div class="project">
+      <h3>AdaBoost</h3>
+      <div class="proj_desc">
+        <p>Diferente stump de classificação em árvores.</p>
+        <div class="proj_links">
+          <a class="btn btn-primary" role="button" href="pages/adaboost.html">Ver Projeto</a>
+          <div class="proj_tags">
+            <span class="badge badge-secondary">Machine Learning</span>
+            <span class="badge badge-secondary">AdaBoost</span>
+          </div>
+        </div>
+      </div>
+      <div class="proj_img">
+        <img src="src/adaboost.png" alt="AdaBoost">
+      </div>
+      <div style="clear: both;"></div>
+    </div>
+  </div>
+
+  <hr>
+
+    <!-- Projeto 3 -->
+    <div class="project">
       <h3>Mapas Auto Organizáveis</h3>
       <div class="proj_desc">
         <p>Exploração de mapas genéricos, para além de grid NxM, através de grafos.</p>
         <div class="proj_links">
-          <a class="btn btn-primary" role="button" href="pages/dom_grafos.html">Ver Projeto</a>
+          <a class="btn btn-primary" role="button" href="index.html">Indisponível</a>
           <div class="proj_tags">
             <span class="badge badge-secondary">SOM</span>
             <span class="badge badge-secondary">Grafos</span>
@@ -321,28 +346,6 @@
       <div style="clear: both;"></div>
     </div>
 
-    <hr>
-
-    <!-- Projeto 3 -->
-    <div class="project">
-      <h3>AdaBoost</h3>
-      <div class="proj_desc">
-        <p>Diferente stump de classificação em árvores.</p>
-        <div class="proj_links">
-          <a class="btn btn-primary" role="button" href="pages/dom_grafos.html">Ver Projeto</a>
-          <div class="proj_tags">
-            <span class="badge badge-secondary">Machine Learning</span>
-            <span class="badge badge-secondary">AdaBoost</span>
-          </div>
-        </div>
-      </div>
-      <div class="proj_img">
-        <img src="src/adaboost.png" alt="AdaBoost">
-      </div>
-      <div style="clear: both;"></div>
-    </div>
-
-  </div>
 
   <!-- Rodapé -->
   <footer class="text-center mt-4 mb-3">

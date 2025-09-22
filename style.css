@@ -1,5 +1,5 @@
-/* palette (variáveis) */
-:root{
+/* Core Colors */
+:root {
   --onyx: #393D3F;
   --white: #FDFDFF;
   --pale-silver: #C6C5B9;
@@ -7,123 +7,114 @@
   --dark-electric-blue: #546A7B;
 }
 
-/* Reset / base */
-* { box-sizing: border-box; }
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
   background-color: var(--white);
-  color: var(--onyx);
 }
-a { color: var(--steel-teal); }
-a:hover { text-decoration: underline; }
 
-/* Navbar brand spacing */
-.navbar-brand { margin-left: 3rem; }
-
-/* Intro block (texto + logos) */
-.intro_block {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+/* Bloco acadêmico */
+.academic_block {
   text-align: center;
+  margin: 40px 0;
 }
-.intro_block .lead {
-  font-size: 1.05rem;
-  margin-bottom: 1rem;
+
+.academic_block p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
 }
-.logos {
+
+.academic_block .logos {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 1.8rem;
-  margin-bottom: 0.75rem;
-}
-.logos img {
-  max-height: 80px;
-  width: auto;
-  display: block;
+  gap: 2rem;
 }
 
-/* Section title */
+.academic_block .logos img {
+  max-height: 80px;
+  width: auto;
+}
+
+/* Projetos */
 h2.current_projects {
   text-align: center;
   margin: 40px 0;
-  color: var(--onyx);
 }
 
-/* Projects layout */
 .project {
+  margin-bottom: 40px;
   padding-left: 1rem;
   padding-bottom: 2rem;
-  overflow: auto; /* limpa floats automaticamente */
 }
 
-/* descrição à esquerda */
-.project > .proj_desc{
+.project > .proj_desc {
   float: left;
-  width: 55%;
-  padding-right: 1rem;
+  width: 50%;
+  height: 200px;
 }
 
-/* imagem à direita - coluna com centralização interna */
 .project > .proj_img {
-  float: right;
   width: 40%;
   max-height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
 }
+
 .proj_img > img {
   width: auto;
   max-height: 200px;
-  display: block;
 }
 
-/* links e tags */
-.proj_links {
-  margin-top: 10px;
-  clear: both;
+.proj_links a {
+  display: inline;
+  float: left;
 }
-.proj_links a.btn {
-  margin: 2px;
-  display: inline-block;
-}
-.proj_tags{
-  display: inline-block;
+
+.proj_links .proj_tags {
+  display: inline;
   float: right;
+}
+
+.proj_tags {
   width: 50%;
   text-align: right;
 }
-.proj_tags .badge {
-  margin-left: 6px;
+
+.proj_links .btn {
+  margin: 2px;
 }
 
-/* Buttons - cores a partir das variáveis */
+/* Navbar */
+.navbar-brand {
+  margin-left: 5rem;
+}
+
+/* Botões */
 .btn-primary,
 .btn-primary:visited {
   background-color: var(--steel-teal);
   border-color: var(--dark-electric-blue);
 }
-.btn-primary:active,
-.btn-primary:focus,
-.btn-primary:hover {
+
+.btn-primary:active {
   background-color: var(--dark-electric-blue);
+}
+
+.btn-primary:focus {
+  background: var(--dark-electric-blue);
   border-color: var(--steel-teal);
 }
 
-/* Container background */
+.btn-primary:hover {
+  background-color: var(--dark-electric-blue);
+}
+
 .container {
   background-color: var(--white);
 }
 
-/* Small utility tweaks */
-hr {
-  border: 0;
-  border-top: 1px solid var(--pale-silver);
-  margin: 1.5rem 0;
-}
+/* Footer */
 footer {
   display: flex;
   justify-content: center;
@@ -132,18 +123,10 @@ footer {
   color: var(--white);
 }
 
-/* Responsividade: empilha em telas pequenas */
-@media (max-width: 768px) {
-  .navbar-brand { margin-left: 1rem; }
-  .project > .proj_desc,
-  .project > .proj_img {
-    float: none;
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
-  }
-  .proj_img { margin-top: 0.5rem; margin-bottom: 0.75rem; }
-  .proj_img > img { max-width: 80%; height: auto; }
-  .proj_tags { float: none; width: auto; text-align: center; margin-top: 0.5rem; }
-  .logos img { max-height: 60px; }
+footer p {
+  margin: 0;
+}
+
+hr {
+  border-color: var(--pale-silver);
 }

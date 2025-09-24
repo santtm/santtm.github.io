@@ -30,10 +30,11 @@
   <div class="container body_block py-4">
 
     <!-- Header centralizado (título + data) -->
-    <header class="text-center mb-4">
-      <h1 class="current_projects display-4 mb-1">Conjuntos Dominantes Mínimos</h1>
-      <p class="current_projects lead mb-0">01/01/2025 - <i>Presente</i></p>
+    <header class="text-center mb-4 academic_block">
+      <h1 class="project_title">Conjuntos Dominantes Mínimos</h1>
+      <p class="project_date">01/01/2025 – <i>Presente</i></p>
     </header>
+
 
     <!-- Intro + Jogo lado a lado (usando grid do Bootstrap) -->
     <section class="project_section mb-4">
@@ -81,55 +82,48 @@
       </p>
     </section>
 
-    <!-- PDFs lado a lado com visualizador em modal -->
+   <!-- PDFs lado a lado -->
     <section class="pdf_section">
       <h2 class="section_title">Documentos do Projeto</h2>
-
       <div class="row">
+        
         <div class="col-md-6 mb-3 pdf_item">
-          <div class="card h-100">
+          <div class="card h-100 text-center">
             <div class="card-body d-flex flex-column">
-              <h6 class="card-title">Apresentação SIAC</h6>
-              <p class="card-text text-muted small mb-2">Apresentação completa em PDF.</p>
-
-              <div class="pdf_preview flex-grow-1 d-flex align-items-center justify-content-center mb-3">
-                <!-- aqui pode adicionar mini-thumbnail se tiver (ex: ../src/SIAC-thumb.png) -->
-                <div class="pdf-placeholder text-center">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <div class="small mt-2">SIAC.pdf</div>
-                </div>
+              <div class="pdf-placeholder mb-3">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" 
+                        stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="small mt-2 font-italic">SIAC.pdf</div>
               </div>
-
-              <div class="d-flex justify-content-between">
-                <button class="btn btn-outline-primary view-pdf-btn" data-pdf="../src/SIAC.pdf" data-title="Apresentação SIAC">Visualizar</button>
-                <a class="btn btn-primary" href="../src/SIAC.pdf" download>Baixar</a>
-              </div>
+              <h6 class="card-title font-weight-bold">Apresentação SIAC</h6>
+              <p class="card-text text-muted small mb-3">Apresentação completa em PDF.</p>
+              <a class="btn btn-primary btn-block mt-auto" href="../src/SIAC.pdf" download>Baixar PDF</a>
             </div>
           </div>
         </div>
-
+    
         <div class="col-md-6 mb-3 pdf_item">
-          <div class="card h-100">
+          <div class="card h-100 text-center">
             <div class="card-body d-flex flex-column">
-              <h6 class="card-title">Resumo do Trabalho</h6>
-              <p class="card-text text-muted small mb-2">Resumo com os pontos principais.</p>
-
-              <div class="pdf_preview flex-grow-1 d-flex align-items-center justify-content-center mb-3">
-                <div class="pdf-placeholder text-center">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  <div class="small mt-2">resumo_trabalho.pdf</div>
-                </div>
+              <div class="pdf-placeholder mb-3">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" 
+                        stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="small mt-2 font-italic">resumo_trabalho.pdf</div>
               </div>
-
-              <div class="d-flex justify-content-between">
-                <button class="btn btn-outline-primary view-pdf-btn" data-pdf="../src/resumo_trabalho.pdf" data-title="Resumo do Trabalho">Visualizar</button>
-                <a class="btn btn-primary" href="../src/resumo_trabalho.pdf" download>Baixar</a>
-              </div>
+              <h6 class="card-title font-weight-bold">Resumo do Trabalho</h6>
+              <p class="card-text text-muted small mb-3">Resumo com os pontos principais.</p>
+              <a class="btn btn-primary btn-block mt-auto" href="../src/resumo_trabalho.pdf" download>Baixar PDF</a>
             </div>
           </div>
         </div>
+    
       </div>
     </section>
+
 
   </div> <!-- /container -->
   

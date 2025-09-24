@@ -1,191 +1,3 @@
-/* Core Colors */
-:root {
-  --onyx: #393D3F;
-  --white: #FDFDFF;
-  --pale-silver: #C6C5B9;
-  --steel-teal: #62929E;
-  --dark-electric-blue: #546A7B;
-}
-
-body {
-  background-color: var(--white);
-}
-
-/* Bloco acadêmico */
-.academic_block {
-  text-align: center;
-  margin: 50px 0;
-  font-family: "Georgia", serif;
-}
-
-.academic_block h1 {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: var(--onyx);
-  margin-bottom: 10px;
-}
-
-.academic_block p {
-  font-size: 1.1rem;
-  font-style: italic;
-  color: var(--dark-electric-blue);
-  line-height: 1.5;
-  margin-bottom: 25px;
-}
-
-.academic_block .logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-}
-
-.academic_block .logos img {
-  height: 80px;
-  width: auto;
-}
-
-.logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-}
-
-.logo img {
-    height: 100%;
-    width: auto;
-    display: block;
-    object-fit: contain;
-}
-
-/* Projetos */
-h2.current_projects {
-  text-align: center;
-  margin: 40px 0;
-}
-
-.project {
-  margin-bottom: 40px;
-  padding-left: 1rem;
-  padding-bottom: 2rem;
-}
-
-.project > .proj_desc {
-  float: left;
-  width: 50%;
-  height: 200px;
-}
-
-.project > .proj_img {
-  width: 40%;
-  max-height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: 0;
-}
-
-.proj_img > img {
-  width: auto;
-  max-height: 200px;
-}
-
-.proj_links a {
-  display: inline;
-  float: left;
-}
-
-.proj_links .proj_tags {
-  display: inline;
-  float: right;
-}
-
-.proj_tags {
-  width: 50%;
-  text-align: right;
-}
-
-.proj_links .btn {
-  margin: 2px;
-}
-
-/* Navbar */
-.navbar-brand {
-  margin-left: 5rem;
-}
-
-/* Botões */
-.btn-primary,
-.btn-primary:visited {
-  background-color: var(--steel-teal);
-  border-color: var(--dark-electric-blue);
-}
-
-.btn-primary:active,
-.btn-primary:focus {
-  background-color: var(--dark-electric-blue);
-  border-color: var(--steel-teal);
-  box-shadow: none; /* Remove o box-shadow padrão do foco */
-}
-
-.btn-primary:hover {
-  background-color: var(--dark-electric-blue);
-}
-
-.btn-secondary {
-  background-color: var(--pale-silver);
-  border-color: var(--dark-electric-blue);
-  color: var(--onyx);
-}
-
-.btn-secondary:active,
-.btn-secondary:focus {
-  background-color: var(--dark-electric-blue);
-  border-color: var(--steel-teal);
-  color: var(--white);
-  box-shadow: none;
-}
-
-.btn-secondary:hover {
-  background-color: var(--dark-electric-blue);
-  color: var(--white);
-}
-
-.container {
-  background-color: var(--white);
-}
-
-/* Footer */
-footer {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  background-color: var(--dark-electric-blue);
-  color: var(--white);
-}
-
-footer p {
-  margin: 0;
-}
-
-hr {
-  border-color: var(--pale-silver);
-}
-
-/* Garantir que o rodapé fique no fim da página */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-/* Container principal para empurrar o rodapé */
-.container.body_block {
-    min-height: calc(100vh - 100px);
-}
-
 /* Estilos da página do projeto */
 .project_title {
   text-align: center;
@@ -218,6 +30,7 @@ html, body {
   margin-bottom: 15px;
 }
 
+/* Galeria de imagens */
 .image_gallery {
   display: flex;
   flex-wrap: wrap;
@@ -240,23 +53,15 @@ html, body {
 }
 
 /* PDFs */
-.project_content {
-  display: flex;
-  flex-direction: column;
-}
-
 .pdf_section {
-  width: 100%;
-  margin-top: auto;
-  align-self: flex-end;
   margin-top: 50px;
 }
 
 .pdf_downloads {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 20px;
-  align-items: flex-end;
+  flex-wrap: wrap;
 }
 
 .pdf_item {
@@ -310,25 +115,24 @@ html, body {
   padding: 10px 20px;
   border: 2px solid var(--white);
   border-radius: 5px;
-  text-decoration: none;
   color: var(--white);
 }
 
-/* Estilos para o layout do jogo */
+/* Jogo */
 .intro-and-game-container {
   display: flex;
-  flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+  flex-wrap: wrap;
   gap: 20px;
-  align-items: flex-start; /* Alinha o topo das seções */
+  align-items: flex-start;
 }
 
 .intro_text_section {
-  flex: 2; /* Ocupa 2 partes do espaço disponível */
-  min-width: 300px; /* Garante que o texto não fique muito estreito */
+  flex: 2;
+  min-width: 300px;
 }
 
 .game_container {
-  flex: 1; /* Ocupa 1 parte do espaço disponível */
+  flex: 1;
   min-width: 300px;
   text-align: center;
 }
@@ -343,7 +147,7 @@ html, body {
   background-color: #f0f0f0;
   cursor: pointer;
   margin-bottom: 20px;
-  width: 100%; /* Ocupa a largura total do contêiner */
+  width: 100%;
   height: auto;
 }
 

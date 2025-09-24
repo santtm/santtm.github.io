@@ -1,10 +1,8 @@
 /* Ajustes específicos do projeto */
 #graphCanvas {
-  border: 1px solid var(--pale-silver);
-  background-color: #f0f0f0;
-  cursor: pointer;
-  max-width: 100%;
-  height: auto;
+  display: block;
+  width: 100%;
+  height: auto; /* opcional: só para responsivo */
 }
 
 .game-controls {

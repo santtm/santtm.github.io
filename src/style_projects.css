@@ -29,17 +29,17 @@
 }
 
 .project_title {
-  text-align: center;
-  font-size: 2.5em;
-  margin-bottom: 0.5em;
+  font-size: 2.2rem;
+  font-weight: bold;
+  font-family: "Georgia", serif;
   color: var(--onyx);
+  margin-bottom: 0.3em;
 }
 
 .project_date {
-  text-align: center;
+  font-size: 1.1rem;
   font-style: italic;
   color: var(--dark-electric-blue);
-  margin-bottom: 2em;
 }
 
 .section_title {
@@ -229,9 +229,8 @@
 }
 
 /* PDF cards placeholders */
-.pdf-placeholder {
-  color: #6c757d;
-  text-align: center;
+.pdf-placeholder svg {
+  color: var(--steel-teal);
 }
 
 /* Modal custom */

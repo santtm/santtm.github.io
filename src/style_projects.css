@@ -128,3 +128,21 @@
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0.7);
 }
+
+.flex_section {
+  display: flex;
+  flex-wrap: wrap; /* para não quebrar no mobile */
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.proj_desc {
+  flex: 1 1 55%; /* texto ocupa ~55% */
+}
+
+.proj_img {
+  flex: 1 1 40%; /* jogo ocupa ~40% */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

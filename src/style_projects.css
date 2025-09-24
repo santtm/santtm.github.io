@@ -212,21 +212,66 @@
   #graphCanvas { max-height: 240px; }
 }
 
-/* Mini título do jogo */
+/* Mini-título do jogo */
 .game_title {
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1.05rem;
+  font-weight: 600;
   color: var(--steel-teal);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+/* Força canvas responsivo visualmente (preserva largura do canvas via atributos) */
+#graphCanvas {
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+  display: block;
+}
+
+/* PDF cards placeholders */
+.pdf-placeholder {
+  color: #6c757d;
   text-align: center;
 }
 
-/* PDFs lado a lado */
-.pdf_downloads {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+/* Modal custom */
+.pdf-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  align-items: center;
+  justify-content: center;
 }
+.pdf-modal.show { display: flex; }
+.pdf-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+.pdf-modal-content {
+  position: relative;
+  z-index: 1101;
+  background: #fff;
+  width: min(1100px, 96%);
+  max-height: 92vh;
+  overflow: auto;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+.pdf-modal-body iframe {
+  width: 100%;
+  height: 70vh;
+  border: none;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .pdf-modal-body iframe { height: 60vh; }
+  #graphCanvas { max-height: 240px; }
+}
+
 
 .pdf_item {
   flex: 1 1 45%;

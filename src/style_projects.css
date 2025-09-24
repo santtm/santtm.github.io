@@ -30,14 +30,13 @@
   font-size: 2.2rem;
   font-weight: bold;
   font-family: "Georgia", serif;
-  color: var(--onyx);
   margin-bottom: 0.3em;
 }
 
 .project_date {
   font-size: 1.1rem;
   font-style: italic;
-  color: var(--dark-electric-blue);
+  color: var(--onyx);
 }
 
 .section_title {

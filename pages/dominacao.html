@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Conjuntos Dominantes Mínimos</title>
   <link rel="shortcut icon" type="image/png" href="../src/favicon.png"/>
 
-  <!-- Bootstrap -->
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
@@ -19,98 +19,196 @@
 
   <!-- Navbar -->
   <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav navbar-brand" href="../index.html">SANTIAGO</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-      <a class="nav nav-link active" href="https://github.com/santtm">GitHub</a>
-      <a class="nav nav-link active" href="https://www.linkedin.com/in/thiago-santiago-b4858a2bb">LinkedIn</a>
-    </ul>
+    <a class="navbar-brand" href="../index.html">SANTIAGO</a>
+    <div class="ml-auto">
+      <a class="nav-link d-inline text-light" href="https://github.com/santtm">GitHub</a>
+      <a class="nav-link d-inline text-light" href="https://www.linkedin.com/in/thiago-santiago-b4858a2bb">LinkedIn</a>
+    </div>
   </nav>
 
   <!-- Container -->
-  <div class="container body_block">
-    <!-- Título e data -->
-      <h2 class="current_projects">Conjuntos Dominantes Mínimos</h2>
-      <h3 class="current_projects">01/01/2025 - <i>Presente</i></h3>
+  <div class="container body_block py-4">
 
-    <!-- Intro + Jogo lado a lado -->
-    <div class="project_section flex_row">
-      <div class="proj_desc">
-        <h2 class="section_title">O que é Dominação em Grafos?</h2>
-        <p>
-          Teoria dos Grafos é uma área que estuda as relações entre objetos. 
-          Um grafo é formado por um conjunto de vértices (os objetos) e um conjunto de arestas (as relações entre eles). 
-          Um <strong>Conjunto Dominante</strong> em um grafo é um subconjunto de vértices, digamos D, tal que todo vértice no grafo que não está em D é adjacente a pelo menos um vértice em D. 
-          Em outras palavras, os vértices em D "dominam" todos os outros vértices do grafo. 
-          Um <strong>Conjunto Dominante Mínimo</strong> é um conjunto dominante com a menor cardinalidade possível.
-        </p>
-      </div>
-    
-      <div class="proj_img">
-        <h3 class="game_title">Mini-jogo: Explore Conjuntos Dominantes</h3>
-        <div id="game-area">
-          <canvas id="graphCanvas" width="480" height="300"></canvas>
+    <!-- Header centralizado (título + data) -->
+    <header class="text-center mb-4">
+      <h1 class="current_projects display-4 mb-1">Conjuntos Dominantes Mínimos</h1>
+      <p class="current_projects lead mb-0">01/01/2025 - <i>Presente</i></p>
+    </header>
+
+    <!-- Intro + Jogo lado a lado (usando grid do Bootstrap) -->
+    <section class="project_section mb-4">
+      <div class="row align-items-start">
+        <!-- texto -->
+        <div class="col-lg-7 proj_desc">
+          <h2 class="section_title">O que é Dominação em Grafos?</h2>
+          <p>
+            Teoria dos Grafos é uma área que estuda as relações entre objetos. 
+            Um grafo é formado por um conjunto de vértices (os objetos) e um conjunto de arestas (as relações entre eles). 
+            Um <strong>Conjunto Dominante</strong> em um grafo é um subconjunto de vértices, digamos D, tal que todo vértice no grafo que não está em D é adjacente a pelo menos um vértice em D. 
+            Em outras palavras, os vértices em D "dominam" todos os outros vértices do grafo. 
+            Um <strong>Conjunto Dominante Mínimo</strong> é um conjunto dominante com a menor cardinalidade possível.
+          </p>
         </div>
-    
-        <div class="game-controls">
-          <div id="hint-text" class="hint-text"></div>
-          <button id="verifyBtn" class="btn btn-primary">Verificar</button>
-          <button id="newGraphBtn" class="btn btn-primary">Novo Grafo</button>
-          <button id="hintBtn" class="btn btn-secondary">Dica</button>
+
+        <!-- jogo -->
+        <div class="col-lg-5 proj_img">
+          <h5 class="game_title text-center">Mini-jogo: Explore Conjuntos Dominantes</h5>
+
+          <div id="game-area" class="mb-3">
+            <!-- canvas: mantenha os atributos width/height para resolução nativa -->
+            <canvas id="graphCanvas" width="960" height="600" style="max-width:100%; height:auto;"></canvas>
+          </div>
+
+          <div class="game-controls justify-content-center d-flex flex-wrap mb-2">
+            <div id="hint-text" class="hint-text w-100 text-center mb-2"></div>
+            <button id="verifyBtn" class="btn btn-primary mr-2 mb-2">Verificar</button>
+            <button id="newGraphBtn" class="btn btn-primary mr-2 mb-2">Novo Grafo</button>
+            <button id="hintBtn" class="btn btn-secondary mb-2">Dica</button>
+          </div>
+
+          <div id="result-message" class="result-message text-center mt-2"></div>
         </div>
-    
-        <div id="result-message" class="result-message"></div>
       </div>
-    </div>
-    
+    </section>
+
     <!-- Resumo -->
-    <div class="project_section">
+    <section class="project_section mb-4">
       <h2 class="section_title">Resumo</h2>
       <p>
         Um estudo sobre cotas e relações de dominação em classes de grafos planares. 
         Este projeto de pesquisa, desenvolvido com bolsa CNPq e sob a orientação de Márcia Rosana Cerioli, 
         explora a teoria dos grafos com foco em conjuntos dominantes mínimos.
       </p>
-    </div>
-    
-    <!-- PDFs -->
-    <div class="pdf_section">
+    </section>
+
+    <!-- PDFs lado a lado com visualizador em modal -->
+    <section class="pdf_section">
       <h2 class="section_title">Documentos do Projeto</h2>
-      <div class="pdf_downloads row">
-        
-        <div class="pdf_item col-md-6">
-          <p>Apresentação SIAC</p>
-          <div class="pdf_embed_container">
-            <iframe src="../src/SIAC.pdf" frameborder="0"></iframe>
-            <a href="../src/SIAC.pdf" class="pdf_download_overlay" download>
-              <div class="download_text">Baixar PDF</div>
-            </a>
+
+      <div class="row">
+        <div class="col-md-6 mb-3 pdf_item">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <h6 class="card-title">Apresentação SIAC</h6>
+              <p class="card-text text-muted small mb-2">Apresentação completa em PDF.</p>
+
+              <div class="pdf_preview flex-grow-1 d-flex align-items-center justify-content-center mb-3">
+                <!-- aqui pode adicionar mini-thumbnail se tiver (ex: ../src/SIAC-thumb.png) -->
+                <div class="pdf-placeholder text-center">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <div class="small mt-2">SIAC.pdf</div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <button class="btn btn-outline-primary view-pdf-btn" data-pdf="../src/SIAC.pdf" data-title="Apresentação SIAC">Visualizar</button>
+                <a class="btn btn-primary" href="../src/SIAC.pdf" download>Baixar</a>
+              </div>
+            </div>
           </div>
         </div>
-        
-        <div class="pdf_item col-md-6">
-          <p>Resumo do Trabalho</p>
-          <div class="pdf_embed_container">
-            <iframe src="../src/resumo_trabalho.pdf" frameborder="0"></iframe>
-            <a href="../src/resumo_trabalho.pdf" class="pdf_download_overlay" download>
-              <div class="download_text">Baixar PDF</div>
-            </a>
+
+        <div class="col-md-6 mb-3 pdf_item">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <h6 class="card-title">Resumo do Trabalho</h6>
+              <p class="card-text text-muted small mb-2">Resumo com os pontos principais.</p>
+
+              <div class="pdf_preview flex-grow-1 d-flex align-items-center justify-content-center mb-3">
+                <div class="pdf-placeholder text-center">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <div class="small mt-2">resumo_trabalho.pdf</div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <button class="btn btn-outline-primary view-pdf-btn" data-pdf="../src/resumo_trabalho.pdf" data-title="Resumo do Trabalho">Visualizar</button>
+                <a class="btn btn-primary" href="../src/resumo_trabalho.pdf" download>Baixar</a>
+              </div>
+            </div>
           </div>
         </div>
-        
+      </div>
+    </section>
+
+  </div> <!-- /container -->
+
+  <!-- PDF Modal (custom, sem dependência do JS do Bootstrap) -->
+  <div id="pdfModal" class="pdf-modal" aria-hidden="true" role="dialog" aria-labelledby="pdfModalTitle">
+    <div class="pdf-modal-backdrop" data-close></div>
+
+    <div class="pdf-modal-content" role="document">
+      <div class="d-flex justify-content-between align-items-start mb-2">
+        <h5 id="pdfModalTitle" class="mb-0"></h5>
+        <button class="btn btn-sm btn-secondary pdf-modal-close" aria-label="Fechar">Fechar</button>
+      </div>
+      <div class="pdf-modal-body mb-2">
+        <iframe id="pdfViewer" src="" frameborder="0" width="100%" height="70vh" aria-label="Visualizador de PDF"></iframe>
+      </div>
+      <div class="text-right">
+        <a id="pdfDownloadLink" class="btn btn-primary" href="#" download>Baixar</a>
       </div>
     </div>
-    
   </div>
 
   <!-- Rodapé -->
-  <footer>
-    <p>santmatos0@gmai.com</p>
+  <footer class="mt-4">
+    <p class="text-center mb-0">santmatos0@gmai.com</p>
   </footer>
-  
+
+  <!-- Graph game script (mantive sua referência original) -->
   <script src="../src/graph_game.js"></script>
+
+  <!-- Script do modal / viewer -->
+  <script>
+    (function () {
+      const modal = document.getElementById('pdfModal');
+      const viewer = document.getElementById('pdfViewer');
+      const titleEl = document.getElementById('pdfModalTitle');
+      const downloadLink = document.getElementById('pdfDownloadLink');
+
+      function openModal(pdfUrl, title) {
+        viewer.src = pdfUrl;
+        titleEl.textContent = title || '';
+        downloadLink.href = pdfUrl;
+        downloadLink.setAttribute('download', '');
+        modal.classList.add('show');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden', 'true');
+        viewer.src = ''; // libera o arquivo
+        document.body.style.overflow = '';
+      }
+
+      // botão visualizar
+      document.querySelectorAll('.view-pdf-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const pdf = this.dataset.pdf;
+          const title = this.dataset.title || '';
+          openModal(pdf, title);
+        });
+      });
+
+      // fechar ao clicar no backdrop ou no botão fechar
+      modal.querySelectorAll('[data-close], .pdf-modal-close').forEach(el => {
+        el.addEventListener('click', closeModal);
+      });
+
+      // ESC fecha modal
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+      });
+    })();
+  </script>
+
+  <!-- Adicione no final caso queira carregar o JS do Bootstrap (opcional) -->
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+
 </body>
 </html>

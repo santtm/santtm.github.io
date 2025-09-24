@@ -35,39 +35,42 @@
       <p class="project_date">01/01/2025 – <i>Presente</i></p>
     </header>
 
-    <!-- Mini-jogo + texto lado a lado -->
-    <section class="project_section flex_row mb-4">
-      <!-- Texto -->
-      <div class="proj_desc">
-        <h2 class="section_title">O que é Dominação em Grafos?</h2>
-        <p> A Teoria dos Grafos é uma área que estuda as relações entre objetos. </p>
-        <p> Um grafo é formado por um conjunto de vértices (os objetos) e um conjunto de arestas (as relações entre eles). 
-          Um <strong>Conjunto Dominante</strong> em um grafo é um subconjunto de vértices, digamos D, tal que todo vértice no grafo que não está em D é adjacente a pelo menos um vértice em D. 
-          Em outras palavras, os vértices em D "dominam" todos os outros vértices do grafo. 
-          Um <strong>Conjunto Dominante Mínimo (CDM)</strong> é um conjunto dominante com a menor cardinalidade possível.
-        </p>
-      </div>
-    
-      <!-- Mini-jogo -->
-      <div class="proj_img text-center">
-        <h5 class="game_title">Explore Conjuntos Dominantes</h5>
-        <p class="small text-muted mb-2">Construa um <strong>CDM</strong>. Clique nos vértices para adicioná-lo ou removê-lo do seu candidato a <strong>CDM</strong>.</p>
-    
-        <div id="game-area" style="width: 480px; margin: 0 auto;">
-          <canvas id="graphCanvas" width="480" height="300"></canvas>
+    <!-- Intro + Jogo lado a lado -->
+    <section class="project_section mb-4">
+      <div class="row align-items-start">
+        <!-- texto -->
+        <div class="col-lg-7 proj_desc">
+          <h2 class="section_title">O que é Dominação em Grafos?</h2>
+          <p>
+            Teoria dos Grafos é uma área que estuda as relações entre objetos. 
+            Um grafo é formado por um conjunto de vértices (os objetos) e um conjunto de arestas (as relações entre eles). 
+            Um <strong>Conjunto Dominante</strong> em um grafo é um subconjunto de vértices, digamos D, tal que todo vértice no grafo que não está em D é adjacente a pelo menos um vértice em D. 
+            Em outras palavras, os vértices em D "dominam" todos os outros vértices do grafo. 
+            Um <strong>Conjunto Dominante Mínimo</strong> é um conjunto dominante com a menor cardinalidade possível.
+          </p>
         </div>
-    
-        <div class="game-controls justify-content-center d-flex flex-wrap mt-3">
-          <div id="hint-text" class="hint-text w-100 text-center mb-2"></div>
-          <button id="verifyBtn" class="btn btn-primary mr-2 mb-2">Verificar</button>
-          <button id="newGraphBtn" class="btn btn-primary mr-2 mb-2">Novo Grafo</button>
-          <button id="hintBtn" class="btn btn-secondary mb-2">Dica</button>
+
+        <!-- jogo -->
+        <div class="col-lg-5 proj_img">
+          <h5 class="game_title text-center">Mini-jogo: Explore Conjuntos Dominantes</h5>
+          <p class="text-center mb-3"><i>Clique nos vértices para adicioná-lo ou removê-lo do seu candidato a CDM.</i></p>
+
+          <div id="game-area" class="mb-3">
+            <!-- Canvas com resolução nativa -->
+            <canvas id="graphCanvas" width="960" height="600"></canvas>
+          </div>
+
+          <div class="game-controls justify-content-center d-flex flex-wrap mb-2">
+            <div id="hint-text" class="hint-text w-100 text-center mb-2"></div>
+            <button id="verifyBtn" class="btn btn-primary mr-2 mb-2">Verificar</button>
+            <button id="newGraphBtn" class="btn btn-primary mr-2 mb-2">Novo Grafo</button>
+            <button id="hintBtn" class="btn btn-secondary mb-2">Dica</button>
+          </div>
+
+          <div id="result-message" class="result-message text-center mt-2"></div>
         </div>
-    
-        <div id="result-message" class="result-message text-center mt-2"></div>
       </div>
     </section>
-
 
     <!-- Resumo -->
     <section class="project_section mb-4">
@@ -79,11 +82,11 @@
       </p>
     </section>
 
-   <!-- PDFs lado a lado -->
-    <section class="pdf_section">
+    <!-- PDFs lado a lado -->
+    <section class="pdf_section mb-4">
       <h2 class="section_title">Documentos do Projeto</h2>
       <div class="row">
-        
+
         <div class="col-md-6 mb-3 pdf_item">
           <div class="card h-100 text-center">
             <div class="card-body d-flex flex-column">
@@ -100,7 +103,7 @@
             </div>
           </div>
         </div>
-    
+
         <div class="col-md-6 mb-3 pdf_item">
           <div class="card h-100 text-center">
             <div class="card-body d-flex flex-column">
@@ -117,10 +120,9 @@
             </div>
           </div>
         </div>
-    
+
       </div>
     </section>
-
 
   </div> <!-- /container -->
   
@@ -129,13 +131,7 @@
     <p class="text-center mb-0">santmatos0@gmai.com</p>
   </footer>
 
-  <!-- Graph game script (mantive sua referência original) -->
+  <!-- Graph game script -->
   <script src="../src/graph_game.js"></script>
-
-  <!-- Adicione no final caso queira carregar o JS do Bootstrap (opcional) -->
-  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
-  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
-
 </body>
 </html>

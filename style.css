@@ -36,28 +36,20 @@ body {
 .academic_block .logos {
   display: flex;
   justify-content: center;
-  align-items: center; /* garante alinhamento vertical */
+  align-items: center;
   gap: 2rem;
 }
 
-/* Logos acadêmicas */
 .academic_block .logos img {
-  height: 80px; /* controle manual do tamanho no topo */
+  height: 80px;
   width: auto;
 }
 
-.logos {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* centraliza verticalmente */
-    gap: 2rem;
-}
-
 .logo img {
-    height: 100%;
-    width: auto;
-    display: block;
-    object-fit: contain; /* força a imagem a preencher o contêiner sem cortar */
+  height: 100%;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 /* Projetos */
@@ -85,7 +77,6 @@ h2.current_projects {
   justify-content: center;
   align-items: center;
   margin-left: auto;
-  margin-right: 0;
 }
 
 .proj_img > img {
@@ -124,21 +115,11 @@ h2.current_projects {
   border-color: var(--dark-electric-blue);
 }
 
-.btn-primary:active {
-  background-color: var(--dark-electric-blue);
-}
-
+.btn-primary:active,
+.btn-primary:hover,
 .btn-primary:focus {
-  background: var(--dark-electric-blue);
-  border-color: var(--steel-teal);
-}
-
-.btn-primary:hover {
   background-color: var(--dark-electric-blue);
-}
-
-.container {
-  background-color: var(--white);
+  border-color: var(--steel-teal);
 }
 
 /* Footer */
@@ -160,12 +141,12 @@ hr {
 
 /* Garantir que o rodapé fique no fim da página */
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* Container principal para empurrar o rodapé */
 .container.body_block {
-    min-height: calc(100vh - 100px); /* ajuste se necessário para altura do rodapé */
+  min-height: calc(100vh - 100px);
 }

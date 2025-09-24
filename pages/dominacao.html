@@ -51,23 +51,22 @@
         </div>
 
         <!-- jogo -->
-        <div class="col-lg-5 proj_img">
+        <div class="col-lg-5 proj_img d-flex flex-column align-items-center">
           <h5 class="game_title text-center">Mini-jogo: Explore Conjuntos Dominantes</h5>
-          <p class="text-center mb-3"><i>Clique nos vértices para adicioná-lo ou removê-lo do seu candidato a CDM.</i></p>
+          <p class="text-center mb-3"><i>Clique nos vértices para adicioná-lo ou removê-lo do seu candidato a <strong>CDM</strong>.</i></p>
 
-          <div id="game-area" class="mb-3">
+          <div id="game-area" class="mb-3 position-relative">
             <!-- Canvas com resolução nativa -->
             <canvas id="graphCanvas" width="960" height="600"></canvas>
+            <!-- Mensagem de resultado sobreposta, não empurra o layout -->
+            <div id="result-message" class="result-message-overlay text-center"></div>
           </div>
 
-          <div class="game-controls justify-content-center d-flex flex-wrap mb-2">
-            <div id="hint-text" class="hint-text w-100 text-center mb-2"></div>
+          <div class="game-controls d-flex justify-content-center flex-wrap mb-2">
             <button id="verifyBtn" class="btn btn-primary mr-2 mb-2">Verificar</button>
             <button id="newGraphBtn" class="btn btn-primary mr-2 mb-2">Novo Grafo</button>
             <button id="hintBtn" class="btn btn-secondary mb-2">Dica</button>
           </div>
-
-          <div id="result-message" class="result-message text-center mt-2"></div>
         </div>
       </div>
     </section>

@@ -146,3 +146,74 @@
   flex-direction: column;
   align-items: center;
 }
+
+/* --- Header (título + data) --- */
+.project_header {
+  text-align: center;
+  margin: 30px 0 20px;
+}
+.project_header .project_title {
+  font-size: 2.2rem;
+  margin: 0;
+  color: var(--onyx);
+}
+.project_header .project_date {
+  font-size: 0.95rem;       /* menor */
+  color: var(--dark-electric-blue);
+  margin-top: 6px;
+  font-style: italic;
+}
+
+/* --- Layout flex para texto + jogo --- */
+.project_section.flex_row {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap; /* permite cair para baixo em telas pequenas */
+}
+
+/* sobrescreve floats antigos se existirem */
+.project_section.flex_row .proj_desc,
+.project_section.flex_row .proj_img {
+  float: none !important;
+}
+
+/* tamanhos relativos das colunas */
+.project_section.flex_row .proj_desc {
+  flex: 1 1 55%;
+  min-width: 240px;
+}
+
+.project_section.flex_row .proj_img {
+  flex: 0 1 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 220px;
+}
+
+/* canvas / game-area */
+#game-area {
+  width: 100%;
+  max-width: 480px; /* ajusta pra seu layout */
+}
+#graphCanvas {
+  width: 100%;          /* faz o canvas preencher o game-area */
+  height: auto;
+  max-height: 320px;    /* limite visual */
+  border: 1px solid var(--pale-silver);
+  background-color: #f0f0f0;
+}
+
+/* responsivo */
+@media (max-width: 768px) {
+  .project_section.flex_row {
+    flex-direction: column;
+  }
+  .project_section.flex_row .proj_desc,
+  .project_section.flex_row .proj_img {
+    flex-basis: 100%;
+  }
+  #graphCanvas { max-height: 240px; }
+}

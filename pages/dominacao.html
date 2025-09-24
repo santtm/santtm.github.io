@@ -35,38 +35,36 @@
       <p class="project_date">01/01/2025 – <i>Presente</i></p>
     </header>
 
-    <!-- jogo + texto lado a lado -->
-    <section class="project_section mb-4">
-      <div class="row align-items-start">
-        <!-- Texto -->
-        <div class="col-lg-7 proj_desc">
-          <h2 class="section_title">O que é Dominação em Grafos?</h2>
-          <p> A Teoria dos Grafos é uma área que estuda as relações entre objetos. </p>
-          <p> Um grafo é formado por um conjunto de vértices (os objetos) e um conjunto de arestas (as relações entre eles). 
-            Um <strong>Conjunto Dominante</strong> em um grafo é um subconjunto de vértices, digamos D, tal que todo vértice no grafo que não está em D é adjacente a pelo menos um vértice em D. 
-            Em outras palavras, os vértices em D "dominam" todos os outros vértices do grafo. 
-            Um <strong>Conjunto Dominante Mínimo (CDM)</strong> é um conjunto dominante com a menor cardinalidade possível.
-          </p>
+    <!-- Mini-jogo + texto lado a lado -->
+    <section class="project_section flex_row mb-4">
+      <!-- Texto -->
+      <div class="proj_desc">
+        <h2 class="section_title">O que é Dominação em Grafos?</h2>
+        <p> A Teoria dos Grafos é uma área que estuda as relações entre objetos. </p>
+        <p> Um grafo é formado por um conjunto de vértices (os objetos) e um conjunto de arestas (as relações entre eles). 
+          Um <strong>Conjunto Dominante</strong> em um grafo é um subconjunto de vértices, digamos D, tal que todo vértice no grafo que não está em D é adjacente a pelo menos um vértice em D. 
+          Em outras palavras, os vértices em D "dominam" todos os outros vértices do grafo. 
+          Um <strong>Conjunto Dominante Mínimo (CDM)</strong> é um conjunto dominante com a menor cardinalidade possível.
+        </p>
+      </div>
+    
+      <!-- Mini-jogo -->
+      <div class="proj_img text-center">
+        <h5 class="game_title">Explore Conjuntos Dominantes</h5>
+        <p class="small text-muted mb-2">Construa um <strong>CDM</strong>. Clique nos vértices para adicioná-lo ou removê-lo do seu candidato a CDM.</p>
+    
+        <div id="game-area" style="width: 480px; margin: 0 auto;">
+          <canvas id="graphCanvas" width="480" height="300"></canvas>
         </div>
     
-        <!-- Mini-jogo -->
-        <div class="col-lg-5 proj_img text-center">
-          <h5 class="game_title mb-2">Explore Conjuntos Dominantes</h5>
-          <p class="small text-muted mb-3">Construa um <strong>CDM</strong>. Clique nos vértices para adicioná-lo ou removê-lo do seu candidato a CDM.</p>
-    
-          <div id="game-area" class="mx-auto mb-3" style="width:480px;">
-            <canvas id="graphCanvas" width="480" height="300" style="display:block;"></canvas>
-          </div>
-    
-          <div class="game-controls justify-content-center d-flex flex-wrap mb-2">
-            <div id="hint-text" class="hint-text w-100 text-center mb-2"></div>
-            <button id="verifyBtn" class="btn btn-primary mr-2 mb-2">Verificar</button>
-            <button id="newGraphBtn" class="btn btn-primary mr-2 mb-2">Novo Grafo</button>
-            <button id="hintBtn" class="btn btn-secondary mb-2">Dica</button>
-          </div>
-    
-          <div id="result-message" class="result-message text-center mt-2"></div>
+        <div class="game-controls justify-content-center d-flex flex-wrap mt-3">
+          <div id="hint-text" class="hint-text w-100 text-center mb-2"></div>
+          <button id="verifyBtn" class="btn btn-primary mr-2 mb-2">Verificar</button>
+          <button id="newGraphBtn" class="btn btn-primary mr-2 mb-2">Novo Grafo</button>
+          <button id="hintBtn" class="btn btn-secondary mb-2">Dica</button>
         </div>
+    
+        <div id="result-message" class="result-message text-center mt-2"></div>
       </div>
     </section>
 

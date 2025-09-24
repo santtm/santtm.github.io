@@ -86,17 +86,23 @@ h2.current_projects {
   min-width: 220px;
 }
 
-/* Mini-jogo */
+/* Coluna do jogo centralizada horizontalmente dentro da row */
 .proj_img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start; /* mantém os itens de cima para baixo */
+  width: 100%; /* garante ocupar toda a coluna */
+  max-width: 480px; /* limita o tamanho do mini container */
+  margin: 0 auto; /* centraliza horizontalmente a coluna */
 }
 
+/* Canvas mantém proporção e centralizado */
 #game-area {
   position: relative;
   width: 100%;
   max-width: 480px;
+  margin: 0 auto; /* garante centralização */
 }
 
 #graphCanvas {
@@ -105,7 +111,7 @@ h2.current_projects {
   display: block;
 }
 
-/* Mensagem de resultado sobre o canvas */
+/* Mensagem de resultado sobreposta */
 .result-message-overlay {
   position: absolute;
   top: 10px;
@@ -117,10 +123,10 @@ h2.current_projects {
   border-radius: 5px;
   font-weight: bold;
   color: var(--onyx);
-  pointer-events: none; /* não interfere nos cliques do canvas */
+  pointer-events: none;
   min-width: 120px;
   text-align: center;
-  display: none; /* será exibido via JS quando necessário */
+  display: none;
 }
 
 /* Game controls */
@@ -130,6 +136,7 @@ h2.current_projects {
   flex-wrap: wrap;
   margin-top: 10px;
 }
+
 
 .game-controls button {
   margin: 2px;
@@ -212,3 +219,10 @@ hr {
     max-height: 240px;
   }
 }
+
+/* Título e descrição do jogo já centralizados */
+.game_title,
+.proj_img p {
+  text-align: center;
+}
+

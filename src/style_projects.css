@@ -1,4 +1,4 @@
-/* Ajustes específicos do jogo */
+/* Ajustes específicos do projeto */
 #graphCanvas {
   border: 1px solid var(--pale-silver);
   background-color: #f0f0f0;
@@ -26,4 +26,105 @@
   font-weight: bold;
   font-size: 1.1rem;
   margin-top: 10px;
+}
+
+.project_title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    color: var(--onyx);
+}
+
+.project_date {
+    text-align: center;
+    font-style: italic;
+    color: var(--dark-electric-blue);
+    margin-bottom: 2em;
+}
+
+.section_title {
+    font-size: 1.8em;
+    color: var(--steel-teal);
+    margin-bottom: 0.8em;
+    text-align: left;
+}
+
+.project_section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: var(--onyx);
+    margin-bottom: 1.5em;
+}
+
+.image_gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+}
+
+.image_gallery img {
+    max-width: 45%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.pdf_section {
+    margin-top: 2em;
+}
+
+.pdf_downloads {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.pdf_item {
+    text-align: center;
+}
+
+.pdf_embed_container {
+    position: relative;
+    padding-bottom: 75%; /* Ajuste conforme a proporção desejada (4:3, 16:9, etc.) */
+    height: 0;
+    overflow: hidden;
+    border: 1px solid var(--pale-silver);
+    border-radius: 5px;
+}
+
+.pdf_embed_container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.pdf_download_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pdf_download_overlay:hover {
+    opacity: 1;
+}
+
+.download_text {
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
 }

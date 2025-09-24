@@ -169,4 +169,3 @@ html, body {
 .container.body_block {
     min-height: calc(100vh - 100px); /* ajuste se necessário para altura do rodapé */
 }
-

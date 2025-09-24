@@ -7,14 +7,28 @@
   --dark-electric-blue: #546A7B;
 }
 
-body {
+/* box sizing e overflow para evitar surpresas de overflow */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   background-color: var(--white);
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden; /* evita scroll horizontal quando algo vaza */
 }
 
 /* Garantir que todas as imagens não vazem */
 img {
   max-width: 100%;
   height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 /* Bloco acadêmico */
@@ -36,21 +50,33 @@ img {
   font-style: italic;
   color: var(--dark-electric-blue);
   line-height: 1.5;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
+/* --- LOGOS: força sempre em linha, com largura proporcional --- */
 .academic_block .logos {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  gap: 0.5rem;
+  flex-wrap: nowrap; /* nunca quebra linha */
+  width: 100%;
+  padding: 0 0.5rem; /* pequeno acolchoamento interno para evitar encostar nas bordas */
+  min-width: 0; /* permite que os flex-items encolham corretamente */
 }
 
-.academic_block .logos img {
+/* Cada logo ocupa até 1/3 do container e pode encolher conforme necessário */
+.academic_block .logos .logo-img {
+  flex: 1 1 0;                       /* pode crescer e encolher, base 0 */
+  max-width: calc(33.333% - 0.33rem);/* garante 3 lado a lado sem ultrapassar (leva gap em conta) */
+  min-width: 0;                      /* importante para permitir o encolhimento dentro do flex */
+  height: auto;
+  display: block;
+}
+
+/* Limites de altura (desktop) */
+.academic_block .logos .logo-img {
   max-height: 80px;
-  width: auto;
-  flex: 1 1 30%;
 }
 
 /* Projetos */
@@ -143,37 +169,56 @@ hr {
   border-color: var(--pale-silver);
 }
 
-/* Garantir que o rodapé fique no fim da página */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
+/* Container principal para empurrar o rodapé */
 .container.body_block {
   min-height: calc(100vh - 100px);
 }
 
-.academic_block .logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: nowrap; /* não deixa quebrar linha */
+/* ------------------ RESPONSIVIDADE ------------------ */
+@media (max-width: 1024px) {
+  /* reduz altura das logos em tablets */
+  .academic_block .logos .logo-img {
+    max-height: 64px;
+    max-width: calc(33.333% - 0.33rem);
+  }
 }
 
-.academic_block .logos img {
-  max-height: 70px;   /* tamanho padrão desktop */
-  width: auto;
-}
-
-/* Telas pequenas: logos menores */
 @media (max-width: 768px) {
-  .academic_block .logos {
-    gap: 0.5rem; /* menos espaço entre elas */
+  /* projetos empilham, mas logos continuam lado a lado (menores) */
+  .project {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
-  .academic_block .logos img {
-    max-height: 45px;  /* reduz proporcionalmente */
+  .proj_links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .proj_tags {
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  /* logos encolhem para caber em telas pequenas */
+  .academic_block .logos {
+    gap: 0.4rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+  }
+
+  .academic_block .logos .logo-img {
+    max-height: 48px;
+    max-width: calc(33.333% - 0.33rem);
+  }
+}
+
+@media (max-width: 420px) {
+  /* ainda menores em smartphones muito estreitos */
+  .academic_block .logos .logo-img {
+    max-height: 40px;
+    max-width: calc(33.333% - 0.2rem);
   }
 }

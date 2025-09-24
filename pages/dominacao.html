@@ -132,25 +132,7 @@
     </section>
 
   </div> <!-- /container -->
-
-  <!-- PDF Modal (custom, sem dependência do JS do Bootstrap) -->
-  <div id="pdfModal" class="pdf-modal" aria-hidden="true" role="dialog" aria-labelledby="pdfModalTitle">
-    <div class="pdf-modal-backdrop" data-close></div>
-
-    <div class="pdf-modal-content" role="document">
-      <div class="d-flex justify-content-between align-items-start mb-2">
-        <h5 id="pdfModalTitle" class="mb-0"></h5>
-        <button class="btn btn-sm btn-secondary pdf-modal-close" aria-label="Fechar">Fechar</button>
-      </div>
-      <div class="pdf-modal-body mb-2">
-        <iframe id="pdfViewer" src="" frameborder="0" width="100%" height="70vh" aria-label="Visualizador de PDF"></iframe>
-      </div>
-      <div class="text-right">
-        <a id="pdfDownloadLink" class="btn btn-primary" href="#" download>Baixar</a>
-      </div>
-    </div>
-  </div>
-
+  
   <!-- Rodapé -->
   <footer class="mt-4">
     <p class="text-center mb-0">santmatos0@gmai.com</p>
@@ -158,52 +140,6 @@
 
   <!-- Graph game script (mantive sua referência original) -->
   <script src="../src/graph_game.js"></script>
-
-  <!-- Script do modal / viewer -->
-  <script>
-    (function () {
-      const modal = document.getElementById('pdfModal');
-      const viewer = document.getElementById('pdfViewer');
-      const titleEl = document.getElementById('pdfModalTitle');
-      const downloadLink = document.getElementById('pdfDownloadLink');
-
-      function openModal(pdfUrl, title) {
-        viewer.src = pdfUrl;
-        titleEl.textContent = title || '';
-        downloadLink.href = pdfUrl;
-        downloadLink.setAttribute('download', '');
-        modal.classList.add('show');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeModal() {
-        modal.classList.remove('show');
-        modal.setAttribute('aria-hidden', 'true');
-        viewer.src = ''; // libera o arquivo
-        document.body.style.overflow = '';
-      }
-
-      // botão visualizar
-      document.querySelectorAll('.view-pdf-btn').forEach(btn => {
-        btn.addEventListener('click', function () {
-          const pdf = this.dataset.pdf;
-          const title = this.dataset.title || '';
-          openModal(pdf, title);
-        });
-      });
-
-      // fechar ao clicar no backdrop ou no botão fechar
-      modal.querySelectorAll('[data-close], .pdf-modal-close').forEach(el => {
-        el.addEventListener('click', closeModal);
-      });
-
-      // ESC fecha modal
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
-      });
-    })();
-  </script>
 
   <!-- Adicione no final caso queira carregar o JS do Bootstrap (opcional) -->
   <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->

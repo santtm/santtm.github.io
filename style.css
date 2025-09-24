@@ -11,6 +11,12 @@ body {
   background-color: var(--white);
 }
 
+/* Garantir que todas as imagens não vazem */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Bloco acadêmico */
 .academic_block {
   text-align: center;
@@ -36,28 +42,15 @@ body {
 .academic_block .logos {
   display: flex;
   justify-content: center;
-  align-items: center; /* garante alinhamento vertical */
+  align-items: center;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
-/* Logos acadêmicas */
 .academic_block .logos img {
-  height: 80px; /* controle manual do tamanho no topo */
+  max-height: 80px;
   width: auto;
-}
-
-.logos {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* centraliza verticalmente */
-    gap: 2rem;
-}
-
-.logo img {
-    height: 100%;
-    width: auto;
-    display: block;
-    object-fit: contain; /* força a imagem a preencher o contêiner sem cortar */
+  flex: 1 1 30%;
 }
 
 /* Projetos */
@@ -67,49 +60,41 @@ h2.current_projects {
 }
 
 .project {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin-bottom: 40px;
-  padding-left: 1rem;
   padding-bottom: 2rem;
 }
 
-.project > .proj_desc {
-  float: left;
-  width: 50%;
-  height: 200px;
+.project > .proj_desc,
+.project > .proj_img {
+  flex: 1 1 45%;
+  min-width: 280px;
+  height: auto;
 }
 
-.project > .proj_img {
-  width: 40%;
-  max-height: 200px;
+.proj_img {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: auto;
-  margin-right: 0;
 }
 
-.proj_img > img {
-  width: auto;
-  max-height: 200px;
+.proj_img img {
+  max-width: 100%;
+  height: auto;
+}
+
+.proj_links {
+  margin-top: 1rem;
 }
 
 .proj_links a {
-  display: inline;
-  float: left;
-}
-
-.proj_links .proj_tags {
-  display: inline;
-  float: right;
+  margin-right: 0.5rem;
 }
 
 .proj_tags {
-  width: 50%;
-  text-align: right;
-}
-
-.proj_links .btn {
-  margin: 2px;
+  margin-top: 0.5rem;
 }
 
 /* Navbar */
@@ -160,12 +145,36 @@ hr {
 
 /* Garantir que o rodapé fique no fim da página */
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-/* Container principal para empurrar o rodapé */
 .container.body_block {
-    min-height: calc(100vh - 100px); /* ajuste se necessário para altura do rodapé */
+  min-height: calc(100vh - 100px);
+}
+
+/* 📱 Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  .project {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .proj_links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .proj_tags {
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .academic_block .logos img {
+    max-width: 80%;
+    flex: unset;
+  }
 }

@@ -67,10 +67,10 @@ body {
 }
 
 #graphCanvas {
-  width: 480px;  /* largura fixa */
-  height: 300px;
+  width: 100%;
+  /* não usar height:auto para não quebrar o clique */
+  max-width: 480px;
   display: block;
-  max-width: 100%; /* responsivo em telas pequenas */
 }
 
 .game_title {

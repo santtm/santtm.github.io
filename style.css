@@ -154,27 +154,26 @@ html, body {
   min-height: calc(100vh - 100px);
 }
 
-/* 📱 Responsividade para telas pequenas */
+.academic_block .logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: nowrap; /* não deixa quebrar linha */
+}
+
+.academic_block .logos img {
+  max-height: 70px;   /* tamanho padrão desktop */
+  width: auto;
+}
+
+/* Telas pequenas: logos menores */
 @media (max-width: 768px) {
-  .project {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .proj_links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .proj_tags {
-    text-align: center;
-    margin-top: 0.5rem;
+  .academic_block .logos {
+    gap: 0.5rem; /* menos espaço entre elas */
   }
 
   .academic_block .logos img {
-    max-width: 80%;
-    flex: unset;
+    max-height: 45px;  /* reduz proporcionalmente */
   }
 }

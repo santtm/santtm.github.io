@@ -63,17 +63,16 @@
 
           <div id="game-area" class="position-relative mb-3">
             <canvas id="graphCanvas" width="960" height="600"></canvas>
-            <div id="result-message" class="result-message-overlay"></div>
           </div>
+
+          <!-- Mensagens (resultado + dica no mesmo lugar, com altura fixa) -->
+          <div id="message-box" class="text-center"></div>
 
           <div class="game-controls mb-2">
-            <button id="verifyBtn" class="btn btn-primary mr-2 mb-2">Verificar</button>
-            <button id="newGraphBtn" class="btn btn-primary mr-2 mb-2">Novo Grafo</button>
-            <button id="hintBtn" class="btn btn-secondary mb-2">Dica</button>
+            <button type="button" id="verifyBtn" class="btn btn-primary mr-2 mb-2">Verificar</button>
+            <button type="button" id="newGraphBtn" class="btn btn-primary mr-2 mb-2">Novo Grafo</button>
+            <button type="button" id="hintBtn" class="btn btn-secondary mb-2">Dica</button>
           </div>
-
-          <!-- Espaço fixo para a dica -->
-          <div id="hint-text" class="hint-box text-center"></div>
         </div>
       </div>
     </section>

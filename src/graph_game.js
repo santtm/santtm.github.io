@@ -8,6 +8,7 @@ let hintGiven = false;
 
 const nodeRadius = 15;
 const nodePositions = [];
+let messageBox;
 
 document.addEventListener('DOMContentLoaded', () => {
     canvas = document.getElementById('graphCanvas');
@@ -18,8 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const verifyBtn = document.getElementById('verifyBtn');
     const newGraphBtn = document.getElementById('newGraphBtn');
     const hintBtn = document.getElementById('hintBtn');
-    const hintText = document.getElementById('hint-text');
-    const resultMessage = document.getElementById('result-message');
+    messageBox = document.getElementById('message-box');
 
     async function fetchGraphData() {
         try {
@@ -28,8 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             newGame();
         } catch (error) {
             console.error('Erro ao carregar os dados dos grafos:', error);
-            resultMessage.textContent = 'Erro ao carregar o jogo. Tente recarregar a página.';
-            resultMessage.style.display = 'block';
+            showMessage('Erro ao carregar o jogo. Tente recarregar a página.', 'incorrect');
             verifyBtn.disabled = true;
             newGraphBtn.disabled = true;
             hintBtn.disabled = true;
@@ -37,10 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function newGame() {
-        resultMessage.textContent = '';
-        resultMessage.style.display = 'none';
-        resultMessage.classList.remove('correct', 'incorrect');
-        hintText.textContent = '';
+        clearMessage();
         hintGiven = false;
         selectedNodes.clear();
         
@@ -61,7 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const angle = (i / numNodes) * 2 * Math.PI;
             nodePositions.push({
                 x: centerX + radius * Math.cos(angle),
-                y: centerY + radius * Math.sin(angle)
+                y: centerY + radius * Math.sin(angle),
+                scale: 1 // para animação
             });
         }
     }
@@ -86,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         nodePositions.forEach((pos, index) => {
             ctx.beginPath();
-            ctx.arc(pos.x, pos.y, nodeRadius, 0, 2 * Math.PI);
+            ctx.arc(pos.x, pos.y, nodeRadius * pos.scale, 0, 2 * Math.PI);
             
             ctx.fillStyle = selectedNodes.has(index) ? 'black' : 'white';
             ctx.fill();
@@ -94,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.lineWidth = 2;
             ctx.stroke();
 
-            if (resultMessage.classList.contains('incorrect')) {
+            if (messageBox.classList.contains('incorrect')) {
                 const minSize = Math.min(...currentGraph.minDominatingSets.map(set => set.length));
                 const correctSet = currentGraph.minDominatingSets.find(set => set.length === minSize);
                 
@@ -107,42 +104,65 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function animateClick(nodeId) {
+        let step = 0;
+        const animate = () => {
+            step++;
+            nodePositions[nodeId].scale = 1 + 0.2 * Math.sin(step * 0.2);
+            drawGraph();
+            if (step < 10) {
+                requestAnimationFrame(animate);
+            } else {
+                nodePositions[nodeId].scale = 1;
+                drawGraph();
+            }
+        };
+        animate();
+    }
+
     function toggleNode(nodeId) {
         if (selectedNodes.has(nodeId)) {
             selectedNodes.delete(nodeId);
         } else {
             selectedNodes.add(nodeId);
         }
-        resultMessage.textContent = '';
-        resultMessage.style.display = 'none';
-        resultMessage.classList.remove('correct', 'incorrect');
-        drawGraph();
+        clearMessage();
+        animateClick(nodeId);
     }
 
-    function checkDominatingSet() {
+    function checkDominatingSet(event) {
+        event.preventDefault();
         const userSet = Array.from(selectedNodes).sort((a, b) => a - b);
         
         let isCorrect = currentGraph.minDominatingSets.some(minSet => {
             return minSet.length === userSet.length && minSet.every(node => userSet.includes(node));
         });
 
-        resultMessage.style.display = 'block';
         if (isCorrect) {
-            resultMessage.textContent = 'Parabéns! Você encontrou um Conjunto Dominante Mínimo!';
-            resultMessage.classList.add('correct');
+            showMessage('Parabéns! Você encontrou um Conjunto Dominante Mínimo!', 'correct');
         } else {
-            resultMessage.textContent = 'Resposta incorreta. O conjunto selecionado não é um dominante mínimo.';
-            resultMessage.classList.add('incorrect');
+            showMessage('Resposta incorreta. O conjunto selecionado não é um dominante mínimo.', 'incorrect');
             drawGraph();
         }
     }
 
-    function giveHint() {
+    function giveHint(event) {
+        event.preventDefault();
         if (!hintGiven) {
             const minSize = Math.min(...currentGraph.minDominatingSets.map(set => set.length));
-            hintText.textContent = `A cardinalidade do conjunto dominante mínimo é: ${minSize}.`;
+            showMessage(`A cardinalidade do conjunto dominante mínimo é: ${minSize}.`, 'hint');
             hintGiven = true;
         }
+    }
+
+    function showMessage(text, type) {
+        messageBox.textContent = text;
+        messageBox.className = `show ${type}`;
+    }
+
+    function clearMessage() {
+        messageBox.textContent = '';
+        messageBox.className = '';
     }
 
     canvas.addEventListener('click', (event) => {
@@ -157,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     verifyBtn.addEventListener('click', checkDominatingSet);
-    newGraphBtn.addEventListener('click', newGame);
+    newGraphBtn.addEventListener('click', (e) => { e.preventDefault(); newGame(); });
     hintBtn.addEventListener('click', giveHint);
 
     fetchGraphData();

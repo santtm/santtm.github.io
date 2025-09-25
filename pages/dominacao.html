@@ -8,26 +8,22 @@
   <!-- Bootstrap -->
   <link rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
 
-  <!-- Highlight.js (para blocos de código futuramente, se quiser usar) -->
-  <link rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/styles/hopscotch.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.2/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-  <!-- MathJax (caso queira fórmulas matemáticas) -->
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- MathJax -->
   <script>
-    MathJax.Hub.Config({
-      tex2jax: {inlineMath: [["$","$"], ["\\(","\\)"]]}
-    });
+    window.MathJax = {
+      tex: { inlineMath: [["$", "$"], ["\\(", "\\)"]] }
+    };
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
 
-  <!-- CSS próprio -->
+  <!-- CSS -->
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="style_projects.css">
+
+  <!-- Script do jogo -->
+  <script src="../src/graph_game.js" defer></script>
 </head>
 <body>
 
@@ -64,15 +60,20 @@
         <div class="col-lg-5 proj_img">
           <h5 class="game_title">Mini-jogo: Explore CDMs</h5>
           <p><i>Clique nos vértices para montar seu candidato.</i></p>
+
           <div id="game-area" class="position-relative mb-3">
             <canvas id="graphCanvas" width="960" height="600"></canvas>
             <div id="result-message" class="result-message-overlay"></div>
           </div>
-          <div class="game-controls">
+
+          <div class="game-controls mb-2">
             <button id="verifyBtn" class="btn btn-primary mr-2 mb-2">Verificar</button>
             <button id="newGraphBtn" class="btn btn-primary mr-2 mb-2">Novo Grafo</button>
             <button id="hintBtn" class="btn btn-secondary mb-2">Dica</button>
           </div>
+
+          <!-- Espaço fixo para a dica -->
+          <div id="hint-text" class="hint-box text-center"></div>
         </div>
       </div>
     </section>
@@ -132,8 +133,5 @@
   <footer>
     <p>Contato: santmatos0@gmai.com</p>
   </footer>
-
-  <!-- Script do jogo -->
-  <script src="../src/graph_game.js"></script>
 </body>
 </html>

@@ -1,4 +1,3 @@
-/* Core Colors */
 :root {
   --onyx: #393D3F;
   --white: #FDFDFF;
@@ -7,18 +6,17 @@
   --dark-electric-blue: #546A7B;
 }
 
-/* Body */
+/* Base */
 body {
   background-color: var(--white);
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 
-/* Academic Block / Header */
+/* Header */
 .academic_block {
   text-align: center;
-  margin: 50px 0;
+  margin: 3rem 0;
   font-family: "Georgia", serif;
 }
 
@@ -26,7 +24,6 @@ body {
   font-size: 2.2rem;
   font-weight: bold;
   color: var(--onyx);
-  margin-bottom: 0.3em;
 }
 
 .project_date {
@@ -35,74 +32,32 @@ body {
   color: var(--dark-electric-blue);
 }
 
-/* Projetos */
-h2.current_projects {
-  text-align: center;
-  margin: 40px 0;
-}
-
-.project_section {
-  margin-bottom: 40px;
-}
-
+/* Sections */
 .section_title {
   font-size: 1.8em;
   color: var(--steel-teal);
   margin-bottom: 0.8em;
-  text-align: left;
 }
 
 .project_section p {
   font-size: 1.1em;
   line-height: 1.6;
   color: var(--onyx);
-  margin-bottom: 1.5em;
 }
 
-/* Layout flex antigo */
-.project_section.flex_row {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.project_section.flex_row .proj_desc,
-.project_section.flex_row .proj_img {
-  float: none !important;
-}
-
-.project_section.flex_row .proj_desc {
-  flex: 1 1 55%;
-  min-width: 240px;
-}
-
-.project_section.flex_row .proj_img {
-  flex: 0 1 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 220px;
-}
-
-/* Coluna do jogo centralizada horizontalmente dentro da row */
+/* Jogo */
 .proj_img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* mantém os itens de cima para baixo */
-  width: 100%; /* garante ocupar toda a coluna */
-  max-width: 480px; /* limita o tamanho do mini container */
-  margin: 0 auto; /* centraliza horizontalmente a coluna */
+  max-width: 480px;
+  margin: 0 auto;
 }
 
-/* Canvas mantém proporção e centralizado */
 #game-area {
   position: relative;
   width: 100%;
   max-width: 480px;
-  margin: 0 auto; /* garante centralização */
 }
 
 #graphCanvas {
@@ -111,50 +66,27 @@ h2.current_projects {
   display: block;
 }
 
-/* Mensagem de resultado sobreposta */
 .result-message-overlay {
   position: absolute;
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
   padding: 6px 12px;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255,255,255,0.85);
   border: 1px solid var(--steel-teal);
   border-radius: 5px;
   font-weight: bold;
   color: var(--onyx);
-  pointer-events: none;
-  min-width: 120px;
-  text-align: center;
   display: none;
 }
 
-/* Game controls */
 .game-controls {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  margin-top: 10px;
+  justify-content: center;
 }
 
-
-.game-controls button {
-  margin: 2px;
-}
-
-/* PDF section */
-.pdf_section .row {
-  gap: 1rem;
-}
-
-.pdf_item .card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-}
-
+/* PDF Cards */
 .pdf-placeholder svg {
   color: var(--steel-teal);
 }
@@ -163,66 +95,27 @@ h2.current_projects {
   font-style: italic;
 }
 
-/* Buttons */
-.btn-primary,
-.btn-primary:visited {
+/* Botões */
+.btn-primary {
   background-color: var(--steel-teal);
   border-color: var(--dark-electric-blue);
 }
 
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active {
+.btn-primary:hover {
   background-color: var(--dark-electric-blue);
   border-color: var(--steel-teal);
 }
 
 .btn-secondary {
   background-color: var(--dark-electric-blue);
-  color: var(--white);
   border-color: var(--steel-teal);
-}
-
-/* Navbar */
-.navbar-brand {
-  margin-left: 1rem;
+  color: var(--white);
 }
 
 /* Footer */
 footer {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   padding: 1rem;
   background-color: var(--dark-electric-blue);
   color: var(--white);
 }
-
-footer p {
-  margin: 0;
-}
-
-/* HR */
-hr {
-  border-color: var(--pale-silver);
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .project_section.flex_row {
-    flex-direction: column;
-  }
-  .project_section.flex_row .proj_desc,
-  .project_section.flex_row .proj_img {
-    flex-basis: 100%;
-  }
-  #graphCanvas {
-    max-height: 240px;
-  }
-}
-
-/* Título e descrição do jogo já centralizados */
-.game_title,
-.proj_img p {
-  text-align: center;
-}
-

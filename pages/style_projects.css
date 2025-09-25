@@ -6,7 +6,6 @@
   --dark-electric-blue: #546A7B;
 }
 
-/* Base */
 body {
   background-color: var(--white);
   margin: 0;
@@ -32,7 +31,7 @@ body {
   color: var(--dark-electric-blue);
 }
 
-/* Sections */
+/* Seções */
 .section_title {
   font-size: 1.8em;
   color: var(--steel-teal);
@@ -86,7 +85,15 @@ body {
   justify-content: center;
 }
 
-/* PDF Cards */
+/* Espaço para dica */
+.hint-box {
+  min-height: 1.5em; /* reserva espaço mesmo vazio */
+  font-size: 0.95em;
+  color: var(--dark-electric-blue);
+  font-style: italic;
+}
+
+/* PDF */
 .pdf-placeholder svg {
   color: var(--steel-teal);
 }

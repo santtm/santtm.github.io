@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nodePositions.push({
                 x: centerX + radius * Math.cos(angle),
                 y: centerY + radius * Math.sin(angle),
-                scale: 1 // para animação
+                scale: 1
             });
         }
     }
@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function drawGraph() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+        // Arestas
         ctx.strokeStyle = 'black';
         ctx.lineWidth = 2;
         for (const [node, neighbors] of Object.entries(currentGraph.adjList)) {
@@ -81,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // Nós
         nodePositions.forEach((pos, index) => {
             ctx.beginPath();
             ctx.arc(pos.x, pos.y, nodeRadius * pos.scale, 0, 2 * Math.PI);
@@ -94,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (messageBox.classList.contains('incorrect')) {
                 const minSize = Math.min(...currentGraph.minDominatingSets.map(set => set.length));
                 const correctSet = currentGraph.minDominatingSets.find(set => set.length === minSize);
-                
                 if (correctSet.includes(index)) {
                     ctx.strokeStyle = 'red';
                     ctx.lineWidth = 4;
@@ -108,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let step = 0;
         const animate = () => {
             step++;
-            nodePositions[nodeId].scale = 1 + 0.2 * Math.sin(step * 0.2);
+            nodePositions[nodeId].scale = 1 + 0.2 * Math.sin(step * 0.3);
             drawGraph();
             if (step < 10) {
                 requestAnimationFrame(animate);
@@ -172,7 +173,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         nodePositions.forEach((pos, index) => {
             const dist = Math.sqrt((mouseX - pos.x) ** 2 + (mouseY - pos.y) ** 2);
-            if (dist < nodeRadius) toggleNode(index);
+            if (dist < nodeRadius * pos.scale) {
+                toggleNode(index);
+            }
         });
     });
 

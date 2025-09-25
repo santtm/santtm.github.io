@@ -66,14 +66,15 @@ body {
   cursor: pointer;
 }
 
-/* Mensagens (resultado + dica) */
+/* Mensagens */
 #message-box {
-  min-height: 2.2em; /* espaço reservado fixo */
+  min-height: 3.5em; /* espaço reservado */
+  max-width: 100%;
   margin-bottom: 0.8rem;
   font-weight: bold;
-  color: var(--onyx);
   transition: opacity 0.3s ease-in-out;
-  opacity: 0; /* começa invisível */
+  opacity: 0;
+  overflow-wrap: break-word;
 }
 #message-box.show {
   opacity: 1;

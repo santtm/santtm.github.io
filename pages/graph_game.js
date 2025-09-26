@@ -1,13 +1,13 @@
-// Usa coordenadas absolutas (plano cartesiano) do JSON, normaliza, centraliza e desenha.
-// Clique: mapeamento correto entre CSS pixels e canvas com devicePixelRatio.
+// src/graph_game.js
 
 let canvas, ctx;
 let allGraphs = [];
 let currentGraph = null;
+let currentIndex = -1;
 let selectedNodes = new Set();
-let nodePositions = []; // coordenadas em CSS pixels para desenho/interação
+let nodePositions = [];
 let hintGiven = false;
-const nodeRadius = 15; // em CSS pixels
+const nodeRadius = 15;
 let messageBox;
 let DPR = window.devicePixelRatio || 1;
 
@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const newGraphBtn = document.getElementById('newGraphBtn');
   const hintBtn = document.getElementById('hintBtn');
 
-  // ---- Helpers: ajuste DPR e bitmap do canvas ----
   function resizeCanvasToDisplaySize() {
     const rect = canvas.getBoundingClientRect();
     DPR = window.devicePixelRatio || 1;
@@ -29,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (canvas.width !== width || canvas.height !== height) {
       canvas.width = width;
       canvas.height = height;
-      // Faz com que usar coordenadas em "CSS pixels" funcione no ctx:
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
     }
   }
@@ -42,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ---- Fetch dos grafos ----
   async function fetchGraphData() {
     try {
       const res = await fetch('../src/grafos.json');
@@ -69,50 +66,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- Geração de posições normalizadas e centralizadas ----
-  // Aceita:
-  // - graph.positions fornecido como { "0": {x,y}, "1": {x,y}, ... } em coordenadas cartesianas (Y para cima)
-  // - se faltar índices, cria fallback circular para os faltantes
   function generateNodePositions(graph) {
     nodePositions = [];
     const rect = canvas.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
+    const margin = Math.max(16, nodeRadius * 3);
 
-    const margin = Math.max(16, nodeRadius * 3); // margem razoável em CSS pixels
-
-    // se não houver positions, fallback circular
     if (!graph.positions || Object.keys(graph.positions).length === 0) {
+      // fallback circular
       const centerX = width / 2;
       const centerY = height / 2;
       const radius = Math.min(width, height) * 0.35;
       for (let i = 0; i < graph.nodes; i++) {
         const angle = (i / Math.max(1, graph.nodes)) * Math.PI * 2;
-        nodePositions.push({ x: centerX + radius * Math.cos(angle), y: centerY + radius * Math.sin(angle), scale: 1 });
+        nodePositions.push({
+          x: centerX + radius * Math.cos(angle),
+          y: centerY + radius * Math.sin(angle),
+          scale: 1
+        });
       }
       return;
     }
 
-    // positions fornecidas: coletar apenas as que existem
-    const provided = {};
-    const xs = [];
-    const ys = [];
-    Object.keys(graph.positions).forEach(k => {
-      const idx = Number(k);
-      const p = graph.positions[k];
-      if (p && typeof p.x === 'number' && typeof p.y === 'number') {
-        provided[idx] = { x: p.x, y: p.y };
-        xs.push(p.x);
-        ys.push(p.y);
-      }
-    });
-
-    if (xs.length === 0 || ys.length === 0) {
-      // fallback
-      generateNodePositions({ nodes: graph.nodes });
-      return;
-    }
-
+    const xs = Object.values(graph.positions).map(p => p.x);
+    const ys = Object.values(graph.positions).map(p => p.y);
     const minX = Math.min(...xs);
     const maxX = Math.max(...xs);
     const minY = Math.min(...ys);
@@ -120,57 +98,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const rangeX = maxX - minX || 1;
     const rangeY = maxY - minY || 1;
+    const scale = Math.min(
+      (width - 2 * margin) / rangeX,
+      (height - 2 * margin) / rangeY
+    );
 
-    // escala uniforme para caber dentro do canvas com margem
-    const scale = Math.min((width - 2 * margin) / rangeX, (height - 2 * margin) / rangeY);
-
-    // centro geométrico dos pontos dados (em coordenadas absolutas)
     const centerX_world = (minX + maxX) / 2;
     const centerY_world = (minY + maxY) / 2;
-
     const canvasCenterX = width / 2;
     const canvasCenterY = height / 2;
 
-    // Para índices que não tenham posição, cria pontos em círculo dentro da caixa normalizada
-    const missing = [];
     for (let i = 0; i < graph.nodes; i++) {
-      if (!(i in provided)) missing.push(i);
-    }
-    if (missing.length > 0) {
-      // gerar pontos circulares na mesma escala e caixa para preencher
-      const fillRadius = Math.min(width, height) * 0.25;
-      for (let j = 0; j < missing.length; j++) {
-        const i = missing[j];
-        const angle = (j / Math.max(1, missing.length)) * Math.PI * 2;
-        // mapeia para um "mundo" coordenada aproximada dentro [minX,maxX]x[minY,maxY]
-        const tx = centerX_world + (Math.cos(angle) * (rangeX * 0.25));
-        const ty = centerY_world + (Math.sin(angle) * (rangeY * 0.25));
-        provided[i] = { x: tx, y: ty };
-      }
-    }
-
-    // finalmente, normaliza todos os vértices para CSS pixels (Y invertido: plano cartesiano -> tela)
-    for (let i = 0; i < graph.nodes; i++) {
-      const p = provided[i];
-      // proteção caso ainda falte
-      const px = (p && typeof p.x === 'number') ? p.x : centerX_world;
-      const py = (p && typeof p.y === 'number') ? p.y : centerY_world;
-
-      // world -> canvas:
-      const normX = (px - centerX_world) * scale + canvasCenterX;
-      // Inverter Y: em JSON y cresce pra cima; no canvas y cresce pra baixo
-      const normY = canvasCenterY - (py - centerY_world) * scale;
-
+      const p = graph.positions[i] || { x: 0, y: 0 };
+      const normX = (p.x - centerX_world) * scale + canvasCenterX;
+      const normY = (p.y - centerY_world) * scale + canvasCenterY;
       nodePositions.push({ x: normX, y: normY, scale: 1 });
     }
   }
 
-  // ---- Desenho ----
   function drawGraph() {
     const rect = canvas.getBoundingClientRect();
     ctx.clearRect(0, 0, rect.width, rect.height);
 
-    // arestas
     ctx.strokeStyle = 'black';
     ctx.lineWidth = 2;
     if (currentGraph && currentGraph.adjList) {
@@ -191,7 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // nós
     nodePositions.forEach((pos, index) => {
       const r = nodeRadius * (pos.scale || 1);
       ctx.beginPath();
@@ -202,7 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.lineWidth = 2;
       ctx.stroke();
 
-      // destaque dos nós corretos quando resposta incorreta estiver visível
       if (messageBox.classList.contains('incorrect') && currentGraph?.minDominatingSets) {
         const minSize = Math.min(...currentGraph.minDominatingSets.map(s => s.length));
         const correctSet = currentGraph.minDominatingSets.find(s => s.length === minSize) || [];
@@ -217,7 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- Interação: clique (CSS pixels) ----
   function animateClick(nodeId) {
     const totalFrames = 10;
     let frame = 0;
@@ -260,7 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ---- Validação / dica / mensagens ----
   function checkDominatingSet(e) {
     if (e) { e.preventDefault(); e.currentTarget?.blur(); e.currentTarget?.classList.remove('active'); }
     if (!currentGraph) { showMessage('Grafo não carregado.', 'incorrect'); return; }
@@ -291,19 +236,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   function clearMessage() { messageBox.textContent = ''; messageBox.className = ''; }
 
-  // ---- Inicializar novo jogo ----
   function startNewGame() {
     [verifyBtn, newGraphBtn, hintBtn].forEach(b => { b?.classList.remove('active'); b?.blur(); });
     resizeCanvasToDisplaySize();
     hintGiven = false;
     selectedNodes.clear();
     clearMessage();
+
     if (!Array.isArray(allGraphs) || allGraphs.length === 0) {
       showMessage('Sem grafos disponíveis', 'incorrect');
       return;
     }
-    const idx = Math.floor(Math.random() * allGraphs.length);
+
+    // sortear um índice diferente do atual
+    let idx;
+    if (allGraphs.length === 1) {
+      idx = 0;
+    } else {
+      do {
+        idx = Math.floor(Math.random() * allGraphs.length);
+      } while (idx === currentIndex);
+    }
+    currentIndex = idx;
     currentGraph = allGraphs[idx];
+
     generateNodePositions(currentGraph);
     drawGraph();
   }
@@ -312,7 +268,6 @@ document.addEventListener('DOMContentLoaded', () => {
   newGraphBtn?.addEventListener('click', () => startNewGame());
   hintBtn?.addEventListener('click', giveHint);
 
-  // start
   resizeCanvasToDisplaySize();
   fetchGraphData();
 });

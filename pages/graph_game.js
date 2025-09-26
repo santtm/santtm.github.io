@@ -294,12 +294,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // associa botões com proteções para blur e remoção de estado "ativo"
-  if (verifyBtn) verifyBtn.addEventListener('click', (e) => { checkDominatingSet(e); });
+  if (verifyBtn) verifyBtn.addEventListener('click', (e) => {
+    if (e && e.currentTarget) { e.currentTarget.classList.remove('active'); setTimeout(()=>e.currentTarget.blur(),0); }
+    checkDominatingSet(e);
+  });
   if (newGraphBtn) newGraphBtn.addEventListener('click', (e) => { 
     if (e && e.currentTarget) { e.currentTarget.classList.remove('active'); setTimeout(()=>e.currentTarget.blur(),0); }
     startNewGame(); 
   });
-  if (hintBtn) hintBtn.addEventListener('click', (e) => { giveHint(e); });
+  if (hintBtn) hintBtn.addEventListener('click', (e) => { 
+    if (e && e.currentTarget) { e.currentTarget.classList.remove('active'); setTimeout(()=>e.currentTarget.blur(),0); }
+    giveHint(e);
+  });
+  
 
   // inicialização
   resizeCanvasToDisplaySize();

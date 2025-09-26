@@ -1,5 +1,3 @@
-// src/graph_game.js
-
 // Estado global
 let canvas, ctx;
 let allGraphs = [];

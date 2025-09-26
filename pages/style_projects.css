@@ -19,30 +19,12 @@ body {
   font-family: "Georgia", serif;
 }
 
-.project_title {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: var(--onyx);
-}
-
-.project_date {
-  font-size: 1.1rem;
-  font-style: italic;
-  color: var(--dark-electric-blue);
-}
+.project_title { font-size: 2.2rem; font-weight: bold; color: var(--onyx); }
+.project_date { font-size: 1.1rem; font-style: italic; color: var(--dark-electric-blue); }
 
 /* Seções */
-.section_title {
-  font-size: 1.8em;
-  color: var(--steel-teal);
-  margin-bottom: 0.8em;
-}
-
-.project_section p {
-  font-size: 1.1em;
-  line-height: 1.6;
-  color: var(--onyx);
-}
+.section_title { font-size: 1.8em; color: var(--steel-teal); margin-bottom: 0.8em; }
+.project_section p { font-size: 1.1em; line-height: 1.6; color: var(--onyx); }
 
 /* Jogo */
 .proj_img {
@@ -53,73 +35,55 @@ body {
   margin: 0 auto;
 }
 
-#game-area {
-  position: relative;
-  width: 100%;
-  max-width: 480px;
-}
+#game-area { position: relative; width: 100%; max-width: 480px; }
 
-#graphCanvas {
-  width: 100%;
-  height: auto;
-  display: block;
-  cursor: pointer;
-}
+/* canvas: ocupa largura do container; seu bitmap é controlado por JS */
+#graphCanvas { width: 100%; height: auto; display: block; cursor: pointer; }
 
-/* Mensagens */
+/* MESSAGE BOX: altura fixa e truncamento (não empurra layout) */
 #message-box {
-  min-height: 3.5em; /* espaço reservado */
-  max-width: 100%;
-  margin-bottom: 0.8rem;
-  font-weight: bold;
-  transition: opacity 0.3s ease-in-out;
+  height: 3.6em;                /* garante espaço suficiente para 2 linhas */
+  min-height: 3.6em;
+  box-sizing: border-box;
+  padding: 0.35rem 0.5rem;
+  margin-bottom: 0.6rem;
+  display: -webkit-box;        /* para -webkit-line-clamp */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;       /* até 2 linhas visíveis */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.6;
+  transition: opacity 0.25s ease;
   opacity: 0;
-  overflow-wrap: break-word;
-}
-#message-box.show {
-  opacity: 1;
-}
-#message-box.correct {
-  color: green;
-}
-#message-box.incorrect {
-  color: red;
-}
-#message-box.hint {
-  color: var(--dark-electric-blue);
-  font-style: italic;
+  font-weight: 600;
+  color: var(--onyx);
+  text-align: center;
 }
 
-/* PDF */
-.pdf-placeholder svg {
-  color: var(--steel-teal);
-}
+/* classes que controlam visibilidade e cor (aplicadas pelo JS) */
+#message-box.show { opacity: 1; }
+#message-box.correct { color: #1b7a28; }     /* verde discreto */
+#message-box.incorrect { color: #b22222; }   /* vermelho discreto */
+#message-box.hint { color: var(--dark-electric-blue); font-style: italic; }
 
-.pdf-placeholder .small {
-  font-style: italic;
-}
+/* Remove outline/box-shadow que pode “parecer” botão pressionado.
+   Isso NÃO altera o layout, apenas o foco visual (mantém acessibilidade mínima). */
+.btn:focus { outline: none !important; box-shadow: none !important; }
 
-/* Botões */
+/* PDF / botões / footer (mantidos visualmente) */
+.pdf-placeholder svg { color: var(--steel-teal); }
+.pdf-placeholder .small { font-style: italic; }
+
 .btn-primary {
   background-color: var(--steel-teal);
   border-color: var(--dark-electric-blue);
 }
-
-.btn-primary:hover {
-  background-color: var(--dark-electric-blue);
-  border-color: var(--steel-teal);
-}
-
+.btn-primary:hover { background-color: var(--dark-electric-blue); border-color: var(--steel-teal); }
 .btn-secondary {
   background-color: var(--dark-electric-blue);
   border-color: var(--steel-teal);
   color: var(--white);
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: var(--dark-electric-blue);
-  color: var(--white);
-}
+footer { text-align: center; padding: 1rem; background-color: var(--dark-electric-blue); color: var(--white); }

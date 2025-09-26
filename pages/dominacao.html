@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR" dir="ltr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Conjuntos Dominantes Mínimos - Santiago</title>
   <link rel="shortcut icon" type="image/png" href="../src/favicon.png"/>
-  
+
   <!-- Bootstrap -->
   <link rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         crossorigin="anonymous">
 
-  <!-- MathJax -->
+  <!-- MathJax (atual) -->
   <script>
-    window.MathJax = {
-      tex: { inlineMath: [["$", "$"], ["\\(", "\\)"]] }
-    };
+    window.MathJax = { tex: { inlineMath: [["$", "$"], ["\\(", "\\)"]] } };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
 
-  <!-- CSS -->
+  <!-- Estilos -->
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="style_projects.css">
 
-  <!-- Script do jogo -->
+  <!-- Script do jogo (defer) -->
   <script src="../src/graph_game.js" defer></script>
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- Navbar (mantive exatamente) -->
   <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <ul class="navbar-nav">
       <li class="nav-item active"><a class="nav navbar-brand" href="../#">SANTIAGO</a></li>
@@ -36,15 +34,12 @@
     </ul>
   </nav>
 
-  <!-- Conteúdo -->
   <div class="container body_block py-4">
-
     <header class="academic_block">
       <h1 class="project_title">Conjuntos Dominantes Mínimos</h1>
       <p class="project_date">01/01/2025 – Presente</p>
     </header>
 
-    <!-- Introdução + jogo -->
     <section class="project_section mb-4">
       <div class="row">
         <div class="col-lg-7 proj_desc">
@@ -58,17 +53,19 @@
         </div>
 
         <div class="col-lg-5 proj_img">
-          <h5 class="game_title">Mini-jogo: Explore CDMs</h5>
+          <h5 class="game_title">Explore CDMs</h5>
           <p><i>Clique nos vértices para montar seu candidato.</i></p>
 
           <div id="game-area" class="position-relative mb-3">
-            <canvas id="graphCanvas" width="960" height="600"></canvas>
+            <!-- mantenho as mesmas propriedades visuais; tamanho CSS controla exibição -->
+            <canvas id="graphCanvas" style="width:100%; height:auto; display:block;"></canvas>
           </div>
 
-          <!-- Mensagens fixas -->
-          <div id="message-box" class="text-center"></div>
+          <!-- BOX FIXO para mensagem (resultado + dica aparecem aqui, sem mover layout) -->
+          <div id="message-box" class="text-center" aria-live="polite"></div>
 
           <div class="game-controls mb-2">
+            <!-- type="button" para evitar submissão/estado nativo -->
             <button type="button" id="verifyBtn" class="btn btn-primary mr-2 mb-2">Verificar</button>
             <button type="button" id="newGraphBtn" class="btn btn-primary mr-2 mb-2">Novo Grafo</button>
             <button type="button" id="hintBtn" class="btn btn-secondary mb-2">Dica</button>
@@ -77,7 +74,6 @@
       </div>
     </section>
 
-    <!-- Resumo -->
     <section class="project_section mb-4">
       <h2 class="section_title">Resumo</h2>
       <p>
@@ -86,17 +82,15 @@
       </p>
     </section>
 
-    <!-- PDFs -->
     <section class="pdf_section mb-4">
       <h2 class="section_title">Documentos do Projeto</h2>
       <div class="row">
-        <div class="col-md-6 mb-3">
+        <div class="col-md-6 mb-3 pdf_item">
           <div class="card h-100 text-center">
             <div class="card-body">
               <div class="pdf-placeholder mb-3">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"
-                        stroke="currentColor" stroke-width="1.2"/>
+                  <path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.2"/>
                 </svg>
                 <div class="small font-italic">SIAC.pdf</div>
               </div>
@@ -107,13 +101,12 @@
           </div>
         </div>
 
-        <div class="col-md-6 mb-3">
+        <div class="col-md-6 mb-3 pdf_item">
           <div class="card h-100 text-center">
             <div class="card-body">
               <div class="pdf-placeholder mb-3">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"
-                        stroke="currentColor" stroke-width="1.2"/>
+                  <path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.2"/>
                 </svg>
                 <div class="small font-italic">resumo_trabalho.pdf</div>
               </div>
@@ -128,7 +121,6 @@
 
   </div>
 
-  <!-- Rodapé -->
   <footer>
     <p>Contato: santmatos0@gmai.com</p>
   </footer>

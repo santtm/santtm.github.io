@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (ok) showMessage('Parabéns! Você encontrou um Conjunto Dominante Mínimo!', 'correct');
     else {
-      showMessage('Resposta incorreta. O conjunto selecionado não é um dominante mínimo.', 'incorrect');
+      showMessage('Incorreto. O conjunto selecionado não é dominante mínimo.', 'incorrect');
       // redesenha para destacar (drawGraph já usa messageBox.classList)
       drawGraph();
     }

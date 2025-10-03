@@ -1,24 +1,3 @@
-:root {
-  --onyx: #393D3F;
-  --white: #FDFDFF;
-  --pale-silver: #C6C5B9;
-  --steel-teal: #62929E;
-  --dark-electric-blue: #546A7B;
-}
-
-body {
-  background-color: var(--white);
-  margin: 0;
-  padding: 0;
-}
-
-/* Header */
-.academic_block {
-  text-align: center;
-  margin: 3rem 0;
-  font-family: "Georgia", serif;
-}
-
 .project_title { font-size: 2.2rem; font-weight: bold; color: var(--onyx); }
 .project_date { font-size: 1.1rem; font-style: italic; color: var(--dark-electric-blue); }
 
@@ -75,15 +54,8 @@ body {
 .pdf-placeholder svg { color: var(--steel-teal); }
 .pdf-placeholder .small { font-style: italic; }
 
-.btn-primary {
-  background-color: var(--steel-teal);
-  border-color: var(--dark-electric-blue);
-}
-.btn-primary:hover { background-color: var(--dark-electric-blue); border-color: var(--steel-teal); }
 .btn-secondary {
   background-color: var(--dark-electric-blue);
   border-color: var(--steel-teal);
   color: var(--white);
 }
-
-footer { text-align: center; padding: 1rem; background-color: var(--dark-electric-blue); color: var(--white); }

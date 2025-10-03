@@ -92,6 +92,14 @@ footer { text-align: center; padding: 1rem; background-color: var(--dark-electri
 /* Ajustes responsivos   */
 /* ===================== */
 @media (max-width: 768px) {
+  .proj_img {
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+  #game-area {
+    max-width: 100%;
+  }
+  
   /* Bloco acadêmico: logos em coluna */
   .academic_block .logos {
     flex-direction: column;

@@ -9,12 +9,14 @@
 
 body {
   background-color: var(--white);
+  margin: 0;
+  padding: 0;
 }
 
 /* Bloco acadêmico */
 .academic_block {
   text-align: center;
-  margin: 50px 0;
+  margin: 3rem 0;
   font-family: "Georgia", serif;
 }
 
@@ -124,11 +126,11 @@ h2.current_projects {
 
 /* Footer */
 footer {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  background-color: var(--dark-electric-blue);
-  color: var(--white);
+ text-align: center;
+ padding: 1rem;
+ background-color:
+ var(--dark-electric-blue);
+ color: var(--white); 
 }
 
 footer p {

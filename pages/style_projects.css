@@ -54,6 +54,11 @@
 .pdf-placeholder svg { color: var(--steel-teal); }
 .pdf-placeholder .small { font-style: italic; }
 
+.btn-primary {
+  background-color: var(--steel-teal);
+  border-color: var(--dark-electric-blue);
+}
+.btn-primary:hover { background-color: var(--dark-electric-blue); border-color: var(--steel-teal); }
 .btn-secondary {
   background-color: var(--dark-electric-blue);
   border-color: var(--steel-teal);

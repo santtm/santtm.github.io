@@ -39,6 +39,7 @@ body {
   height: calc(var(--unit) * var(--scale));
   width: auto;
   margin: 0 1rem;
+  flex-shrink: 0; /* impede encolher mais que a proporção */
 }
 
 .logo img {
@@ -48,8 +49,15 @@ body {
   object-fit: contain;
 }
 
-:root {
+/* :root {
   --unit: 7px;  /* você escolhe a unidade base */
+/* }
+
+/* Ajuste proporcional em telas pequenas */
+@media (max-width: 768px) {
+  .academic_block .logos img {
+    height: calc(10vw * var(--scale) / 75); /* 75 = maior logo */
+  }
 }
 
 /* Projetos */

@@ -36,7 +36,7 @@ body {
 }
 
 .academic_block .logos img {
-  /* height: calc(var(--unit) * var(--scale)); */
+  height: calc(var(--unit) * var(--scale));
   width: auto;
   margin: 0 1rem;
   flex-shrink: 0; /* impede encolher mais que a proporção */
@@ -49,14 +49,15 @@ body {
   object-fit: contain;
 }
 
-/* :root {
-  --unit: 7px;  /* você escolhe a unidade base */
-/* }
+/* Unidade base */
+:root {
+  --unit: 1.5vw; /* se quiser ajustar dinamicamente à largura da tela */
+}
 
-/* Ajuste proporcional em telas pequenas */
-@media (max-width: 768px) {
-  .academic_block .logos img {
-    height: calc(2vw * var(--scale) / 75); /* 75 = maior logo */
+/* Ajuste proporcional em telas muito pequenas */
+@media (max-width: 480px) {
+  :root {
+    --unit: 3vw; /* aumenta a unidade em telas muito pequenas */
   }
 }
 

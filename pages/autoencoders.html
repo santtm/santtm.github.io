@@ -37,6 +37,100 @@
       <p class="project_date">01/01/2025 – Presente</p>
     </header>
 
+    <section class="project_section mb-4">
+      <div class="row">
+        <div class="col-lg-7 proj_desc">
+          <h2 class="section_title">O que é Dominação em Grafos?</h2>
+          <p>
+            A Teoria dos Grafos estuda relações entre objetos, onde um grafo é usualmente representado por $G = (V, E)$,
+            onde $V$ é um conjunto de vértices, e $E$ um conjunto de arestas.
+          </p>
+          <p>
+            Um <strong>Conjunto Dominante</strong> é um subconjunto de vértices $D \subset V$ tal que
+            todo vértice fora de $D$ é adjacente a pelo menos um vértice de $D$.
+            Um <strong>Conjunto Dominante Mínimo</strong> é aquele de menor cardinalidade.
+          </p>
+          <p>
+            Abaixo vemos exemplos de grafos em que os vértices pintados de preto constituem conjuntos dominantes mínimos.            
+          </p>
+          <p>
+            <img src="../src/exemplos_dominacao.png" alt="Exemplo de conjunto dominante mínimo" class="img-fluid mx-auto d-block mb-3">
+          </p>
+        </div>
+
+        <div class="col-lg-5 proj_img">
+          <h5 class="game_title">Explore CDMs</h5>
+          <p><i>Clique nos vértices para montar seu candidato a CDM.</i></p>
+
+          <div id="game-area" class="position-relative mb-3">
+            <!-- mantenho as mesmas propriedades visuais; tamanho CSS controla exibição -->
+            <canvas id="graphCanvas" style="width:100%; height:auto; display:block;"></canvas>
+          </div>
+
+          <!-- BOX FIXO para mensagem (resultado + dica aparecem aqui, sem mover layout) -->
+          <div id="message-box" class="text-center" aria-live="polite"></div>
+
+          <div class="game-controls mb-2">
+            <!-- type="button" para evitar submissão/estado nativo -->
+            <button type="button" id="verifyBtn" class="btn btn-primary mr-2 mb-2">Verificar</button>
+            <button type="button" id="newGraphBtn" class="btn btn-primary mr-2 mb-2">Novo Grafo</button>
+            <button type="button" id="hintBtn" class="btn btn-secondary mb-2">Dica</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project_section mb-4">
+      <h2 class="section_title">Resumo</h2>
+      <p>
+        Este trabalho é resultado dos estudos feitos durante iniciação científica com bolsa CNPq, sob orientação da prof. Márcia Rosana Cerioli.
+      </p>
+      <p>
+        Abordamos principalmente relações entre os elementos de <strong>CDMs</strong> simples e duplos, cotas superiores para esses parâmetros de dominação,
+        com foco nas classes de outerplanares maximais e árvores. Também estudamos conexões da teoria de dominação com a teoria de emparelhamentos.
+      </p>
+      
+    </section>
+
+    <section class="pdf_section mb-4">
+      <h2 class="section_title">Documentos do Projeto</h2>
+      <div class="row">
+        <div class="col-md-6 mb-3 pdf_item">
+          <div class="card h-100 text-center">
+            <div class="card-body">
+              <div class="pdf-placeholder mb-3">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.2"/>
+                </svg>
+                <div class="small font-italic">SIAC_2025.pdf</div>
+              </div>
+              <h6 class="card-title font-weight-bold">Apresentação SIAC 2025</h6>
+              <p class="card-text small text-muted">PDF da apresentação completa.</p>
+              <a class="btn btn-primary btn-block" href="../src/SIAC_2025.pdf" download>Baixar PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3 pdf_item">
+          <div class="card h-100 text-center">
+            <div class="card-body">
+              <div class="pdf-placeholder mb-3">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.2"/>
+                </svg>
+                <div class="small font-italic">Doc_IC.pdf</div>
+              </div>
+              <h6 class="card-title font-weight-bold">Texto completo</h6>
+              <p class="card-text small text-muted">Texto com os trabalhos estudados.</p>
+              <a class="btn btn-primary btn-block" href="../src/Doc_IC.pdf" download>Baixar PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    </div>
+
     <h2 class="current_projects">Projetos / Experimentos</h2>
 
     <!-- Projeto 0 -->
@@ -82,59 +176,10 @@
       </div>
     </div>
 
-    <hr>
-
-    <!-- Projeto 2 -->
-    <div class="project mb-5">
-      <h3>AdaBoost</h3>
-      <div class="row">
-        <div class="col-lg-7 proj_desc">
-          <p>Diferente stump de classificação em árvores.</p>
-          <div class="proj_links d-flex justify-content-between align-items-center flex-wrap">
-            <a class="btn btn-primary mb-2" href="pages/adaboost.html">Ver Projeto</a>
-            <div class="proj_tags text-lg-right">
-              <span class="badge badge-secondary">Machine Learning</span>
-              <span class="badge badge-secondary">AdaBoost</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-5 proj_img text-center">
-          <img src="../src/adaboost.png" alt="AdaBoost" class="img-fluid">
-        </div>
-      </div>
-    </div>
-
-    <hr>
-
-    <!-- Projeto 3 -->
-    <div class="project mb-5">
-      <h3>Mapas Auto Organizáveis</h3>
-      <div class="row">
-        <div class="col-lg-7 proj_desc">
-          <p>Exploração de mapas genéricos, para além de grid NxM, através de grafos.</p>
-          <div class="proj_links d-flex justify-content-between align-items-center flex-wrap">
-            <a class="btn btn-primary mb-2" href="/">Indisponível</a>
-            <div class="proj_tags text-lg-right">
-              <span class="badge badge-secondary">SOM</span>
-              <span class="badge badge-secondary">Grafos</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-5 proj_img text-center">
-          <img src="../src/Somtraining.png" alt="Mapas Auto Organizáveis" class="img-fluid">
-        </div>
-      </div>
-    </div>
-
   </div>
-
-  <!-- Rodapé -->
-  <footer class="text-center mt-4 mb-3">
+  
+  <footer>
     <p>santmatos0@gmail.com</p>
   </footer>
-
-  <!-- Bootstrap JS (opcional para navbar responsiva) -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

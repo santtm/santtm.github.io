@@ -36,7 +36,7 @@ body {
 }
 
 .academic_block .logos img {
-  height: calc(var(--unit) * var(--scale));
+  /* height: calc(var(--unit) * var(--scale)); */
   width: auto;
   margin: 0 1rem;
   flex-shrink: 0; /* impede encolher mais que a proporção */

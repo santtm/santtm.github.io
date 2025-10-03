@@ -35,21 +35,29 @@ body {
   margin-bottom: 25px;
 }
 
+.academic_block .logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
 .academic_block .logos img {
-  height: calc(var(--unit) * var(--scale));
+  height: auto;
   width: auto;
-  margin: 0 1rem;
+  max-height: 15vw;  /* altura máxima relativa à largura da tela */
 }
 
-.logo img {
-  height: 100%;
-  width: auto;
-  display: block;
-  object-fit: contain;
+.academic_block .logos img:nth-child(1) {
+  max-height: calc(15vw * 75 / 75); /* 75 */
 }
 
-:root {
-  --unit: 7px;  /* você escolhe a unidade base */
+.academic_block .logos img:nth-child(2) {
+  max-height: calc(15vw * 70 / 75); /* 70 */
+}
+
+.academic_block .logos img:nth-child(3) {
+  max-height: calc(15vw * 60 / 75); /* 60 */
 }
 
 /* Projetos */

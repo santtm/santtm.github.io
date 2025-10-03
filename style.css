@@ -56,7 +56,7 @@ body {
 /* Ajuste proporcional em telas pequenas */
 @media (max-width: 768px) {
   .academic_block .logos img {
-    height: calc(10vw * var(--scale) / 75); /* 75 = maior logo */
+    height: calc(2vw * var(--scale) / 75); /* 75 = maior logo */
   }
 }
 

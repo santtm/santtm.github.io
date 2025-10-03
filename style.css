@@ -119,6 +119,8 @@ html, body {
   height: 100%;
 }
 
-.container.body_block {
-  min-height: calc(100vh - 100px);
+@media (min-width: 992px) { /* Bootstrap lg */
+  .container.body_block {
+    min-height: calc(100vh - 100px);
+  }
 }

@@ -11,13 +11,13 @@ body {
   background-color: var(--white);
   margin: 0;
   padding: 0;
+  font-family: "Georgia", serif;
 }
 
 /* Bloco acadêmico */
 .academic_block {
   text-align: center;
   margin: 3rem 0;
-  font-family: "Georgia", serif;
 }
 
 .academic_block h1 {
@@ -35,16 +35,10 @@ body {
   margin-bottom: 25px;
 }
 
-.academic_block .logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-}
-
 .academic_block .logos img {
   height: 80px;
   width: auto;
+  margin: 0 1rem;
 }
 
 .logo img {
@@ -60,54 +54,34 @@ h2.current_projects {
   margin: 40px 0;
 }
 
-.project {
-  margin-bottom: 40px;
-  padding-left: 1rem;
-  padding-bottom: 2rem;
+.project h3 {
+  margin-bottom: 1rem;
+  color: var(--onyx);
 }
 
-.project > .proj_desc {
-  float: left;
-  width: 50%;
-  height: 200px;
+.proj_desc p {
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
-.project > .proj_img {
-  width: 40%;
+.proj_img img {
   max-height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-}
-
-.proj_img > img {
   width: auto;
-  max-height: 200px;
 }
 
-.proj_links a {
-  display: inline;
-  float: left;
-}
-
-.proj_links .proj_tags {
-  display: inline;
-  float: right;
+/* Tags e links dentro do projeto */
+.proj_links {
+  margin-top: 1rem;
 }
 
 .proj_tags {
-  width: 50%;
-  text-align: right;
-}
-
-.proj_links .btn {
-  margin: 2px;
+  margin-top: 0.5rem;
 }
 
 /* Navbar */
 .navbar-brand {
-  margin-left: 5rem;
+  margin-left: 1rem;
+  font-weight: bold;
 }
 
 /* Botões */
@@ -126,11 +100,10 @@ h2.current_projects {
 
 /* Footer */
 footer {
- text-align: center;
- padding: 1rem;
- background-color:
- var(--dark-electric-blue);
- color: var(--white); 
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--dark-electric-blue);
+  color: var(--white);
 }
 
 footer p {
@@ -144,11 +117,8 @@ hr {
 /* Garantir que o rodapé fique no fim da página */
 html, body {
   height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
-/* Container principal para empurrar o rodapé */
 .container.body_block {
   min-height: calc(100vh - 100px);
 }

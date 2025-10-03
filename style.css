@@ -36,7 +36,7 @@ body {
 }
 
 .academic_block .logos img {
-  height: 80px;
+  height: calc(var(--unit) * var(--scale));
   width: auto;
   margin: 0 1rem;
 }
@@ -46,6 +46,10 @@ body {
   width: auto;
   display: block;
   object-fit: contain;
+}
+
+:root {
+  --unit: 10px;  /* você escolhe a unidade base */
 }
 
 /* Projetos */

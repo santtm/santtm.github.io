@@ -87,3 +87,60 @@ body {
 }
 
 footer { text-align: center; padding: 1rem; background-color: var(--dark-electric-blue); color: var(--white); }
+
+/* ===================== */
+/* Ajustes responsivos   */
+/* ===================== */
+@media (max-width: 768px) {
+  /* Bloco acadêmico: logos em coluna */
+  .academic_block .logos {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .academic_block .logos img {
+    height: 60px;
+  }
+
+  /* Projetos: empilhar imagem e descrição */
+  .project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .project > .proj_desc,
+  .project > .proj_img {
+    float: none;
+    width: 100%;
+    height: auto;
+    margin: 0 0 1rem 0;
+    text-align: center;
+  }
+  .proj_img > img {
+    max-width: 90%;
+    height: auto;
+  }
+
+  /* Links e tags alinhados em coluna */
+  .proj_links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .proj_links a,
+  .proj_links .proj_tags {
+    float: none;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  /* Navbar marca mais perto da esquerda */
+  .navbar-brand {
+    margin-left: 1rem;
+  }
+
+  /* Footer centralizado */
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}

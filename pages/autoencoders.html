@@ -1,1 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SANTIAGO</title>
+  <link rel="shortcut icon" type="image/png" href="src/IM.png"/>
 
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        crossorigin="anonymous">
+
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">SANTIAGO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="https://github.com/santtm">GitHub</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/thiago-santiago-b4858a2bb">LinkedIn</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Container -->
+  <div class="container body_block py-4">
+
+    <!-- Bloco acadêmico -->
+    <div class="academic_block">
+      <h1>Thiago Santiago de Matos</h1>
+      <p>8º período de graduação bacharelado em Matemática UFRJ<br>
+         Bolsista CNPq na área de Teoria dos Grafos</p>
+      <div class="logos d-flex justify-content-center align-items-center flex-wrap gap-3">
+        <img src="src/UFRJ.png" alt="UFRJ" style="height:75px; width:auto;">
+        <img src="src/IM.png" alt="IM" style="height:70px; width:auto;">
+        <img src="src/CNPq.png" alt="CNPq" style="height:60px; width:auto;">
+      </div>
+    </div>
+
+    <h2 class="current_projects">Projetos / Experimentos</h2>
+
+    <!-- Projeto 0 -->
+    <div class="project mb-5">
+      <h3>Conjuntos Dominantes Mínimos</h3>
+      <div class="row">
+        <div class="proj_desc" style="max-width:480px;">
+          <p>Um estudo sobre cotas e relações de dominação em classes de grafos planares. Projeto de pesquisa de Iniciação Científica sob bolsa CNPq. Orientadora Márcia Rosana Cerioli.</p>
+          <div class="proj_links d-flex justify-content-between align-items-center flex-wrap">
+            <a class="btn btn-primary mb-2" href="pages/dominacao.html">Ver Projeto</a>
+            <div class="proj_tags text-lg-right">
+              <span class="badge badge-secondary">Teoria dos Grafos</span>
+              <span class="badge badge-secondary">Dominação</span>
+            </div>
+          </div>
+        </div>
+        <div class="proj_img text-center" style="max-width:480px;">
+          <img src="src/miniatura_dom_grafos.png" alt="Conjuntos Dominantes" class="img-fluid">
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Projeto 1 -->
+    <div class="project mb-5">
+      <h3>AutoEncoders</h3>
+      <div class="row">
+        <div class="col-lg-7 proj_desc">
+          <p>Ajuste de modelos para interpolação no espaço latente visualmente conexa. Dataset MNIST.</p>
+          <div class="proj_links d-flex justify-content-between align-items-center flex-wrap">
+            <a class="btn btn-primary mb-2" href="pages/autoencoders.html">Ver Projeto</a>
+            <div class="proj_tags text-lg-right">
+              <span class="badge badge-secondary">Deep Learning</span>
+              <span class="badge badge-secondary">MNIST</span>
+              <span class="badge badge-secondary">Autoencoder</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 proj_img text-center">
+          <img src="src/dataset_mnist_demo_02.png" alt="AutoEncoders" class="img-fluid">
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Projeto 2 -->
+    <div class="project mb-5">
+      <h3>AdaBoost</h3>
+      <div class="row">
+        <div class="col-lg-7 proj_desc">
+          <p>Diferente stump de classificação em árvores.</p>
+          <div class="proj_links d-flex justify-content-between align-items-center flex-wrap">
+            <a class="btn btn-primary mb-2" href="pages/adaboost.html">Ver Projeto</a>
+            <div class="proj_tags text-lg-right">
+              <span class="badge badge-secondary">Machine Learning</span>
+              <span class="badge badge-secondary">AdaBoost</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 proj_img text-center">
+          <img src="src/adaboost.png" alt="AdaBoost" class="img-fluid">
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Projeto 3 -->
+    <div class="project mb-5">
+      <h3>Mapas Auto Organizáveis</h3>
+      <div class="row">
+        <div class="col-lg-7 proj_desc">
+          <p>Exploração de mapas genéricos, para além de grid NxM, através de grafos.</p>
+          <div class="proj_links d-flex justify-content-between align-items-center flex-wrap">
+            <a class="btn btn-primary mb-2" href="/">Indisponível</a>
+            <div class="proj_tags text-lg-right">
+              <span class="badge badge-secondary">SOM</span>
+              <span class="badge badge-secondary">Grafos</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 proj_img text-center">
+          <img src="src/Somtraining.png" alt="Mapas Auto Organizáveis" class="img-fluid">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="text-center mt-4 mb-3">
+    <p>santmatos0@gmail.com</p>
+  </footer>
+
+  <!-- Bootstrap JS (opcional para navbar responsiva) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

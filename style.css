@@ -57,7 +57,7 @@ body {
 /* Ajuste proporcional em telas muito pequenas */
 @media (max-width: 480px) {
   :root {
-    --unit: 3vw; /* aumenta a unidade em telas muito pequenas */
+    --unit: 1.5vw; /* aumenta a unidade em telas muito pequenas */
   }
 }
 

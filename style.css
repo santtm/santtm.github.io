@@ -42,36 +42,27 @@ body {
   flex-shrink: 0; /* impede encolher mais que a proporção */
 }
 
-.logo img {
-  height: 100%;
-  width: auto;
-  display: block;
-  object-fit: contain;
-}
-
 .logos {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap; /* nunca quebra linha */
-  gap: 1rem;         /* espaçamento entre imagens */
-  width: 100%;
-  overflow: hidden;  /* evita scroll horizontal */
+  gap: 1rem;           /* espaçamento entre as imagens */
+  flex-wrap: nowrap;    /* nunca quebrar linha */
 }
 
 .logo {
   height: auto;
-  max-width: 100%;    /* garante que a imagem não ultrapasse o container */
+  max-width: 25%;       /* cada imagem ocupa no máximo 25% do container */
 }
 
-/* Proporções relativas entre as imagens */
-.logo.ufrj { flex: 1.1; }
-.logo.im   { flex: 1; }
-.logo.cnpq { flex: 0.9; }
+/* proporções relativas mantendo escala visual aproximada */
+.logo.ufrj { max-width: 27%; }  /* ligeiramente maior */
+.logo.im   { max-width: 25%; }
+.logo.cnpq { max-width: 22%; }
 
-/* Faz as imagens encolherem proporcionalmente em telas pequenas */
-@media (max-width: 600px) {
-  .logo { flex: 1; } /* mantém proporção igual quando o espaço é muito pequeno */
+/* Para telas muito pequenas, encolhe proporcionalmente */
+@media (max-width: 500px) {
+  .logo { max-width: 30%; }  /* reduz para caber no espaço */
 }
 
 /* Projetos */

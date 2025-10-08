@@ -49,15 +49,31 @@ body {
   object-fit: contain;
 }
 
-/* Unidade base */
-:root {
-  --unit: 1.5vw; /* se quiser ajustar dinamicamente à largura da tela */
+.logos {
+  max-width: 100%;
 }
 
-/* Ajuste proporcional em telas muito pequenas */
-@media (max-width: 480px) {
-  :root {
-    --unit: 1.5vw; /* aumenta a unidade em telas muito pequenas */
+.logo {
+  height: auto;
+  max-height: 80px; /* altura máxima padrão */
+}
+
+.logo.ufrj {
+  max-height: calc(80px * 1.1); /* proporcional à escala 7.5 */
+}
+
+.logo.im {
+  max-height: calc(80px * 1.0); /* proporcional à escala 7 */
+}
+
+.logo.cnpq {
+  max-height: calc(80px * 0.9); /* proporcional à escala 6 */
+}
+
+/* Faz as imagens se ajustar bem em telas menores */
+@media (max-width: 600px) {
+  .logo {
+    max-height: 50px;
   }
 }
 

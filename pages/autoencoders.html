@@ -2,7 +2,7 @@
 <html lang="pt-BR" dir="ltr">
 <head>
   <meta charset="UTF-8" />
-  <title>Interpolação via AutoEncoders - Santiago</title>
+  <title>Interpolação via Autoencoders - Santiago</title>
   <link rel="shortcut icon" type="image/png" href="../src/favicon.png"/>
 
   <!-- Bootstrap -->
@@ -37,30 +37,43 @@
 
   <div class="container body_block py-4">
     <header class="academic_block">
-      <h1 class="project_title">Interpolação via AutoEncoders</h1>
+      <h1 class="project_title">Interpolação via Autoencoders</h1>
       <p class="project_date">17/07/2025</p>
     </header>
 
     <section class="project_section mb-4">
       <div class="row">
         <div class="col-lg-7 proj_desc">
-          <h2 class="section_title">O que é Interpolação de Imagens?</h2>
+          <h2 class="section_title">Introdução</h2>
           <p>
-            Dado um dataset de imagens, como o <strong>MNIST</strong>, queremos gerar sequências de imagens que transitam de uma amostra para outra.
-            No nosso caso, cada imagem representa um dígito em escala de cinza, e a "tinta branca" define o desenho do número.
-          </p>
-          <p>
-            O desafio é gerar essas transições de forma que o desenho permaneça <strong>conexo</strong> — isto é, que não existam "poças" desconexas de tinta em cantos isolados.
-          </p>
-          <p>
-            Estrategicamente, utilizamos <strong>Autoencoders</strong>:
-          </p>
+            Autoencoders são uma classe de redes neurais projetadas para aprender representações compactas de dados de forma não supervisionada. Eles são compostos por duas partes principais:
+          
           <ul>
-            <li>Treinamos o modelo para reconstruir imagens do MNIST.</li>
-            <li>Geramos instâncias aleatórias no espaço latente que podem conter poças.</li>
-            <li>Corrigimos manualmente essas poças para criar imagens conectadas.</li>
-            <li>Retreinamos o modelo com essas imagens corrigidas, ensinando-o a produzir desenhos sempre conectos.</li>
+            <li>Encoder: mapeia a entrada para um espaço latente de dimensão reduzida, preservando as características mais importantes da informação.</li>
+            <li>Decoder: reconstrói a entrada original a partir dessa representação latente.</li>
           </ul>
+            
+            O treinamento do autoencoder consiste em minimizar a diferença entre a entrada original e sua reconstrução, incentivando o modelo a capturar padrões essenciais e descartar ruído ou detalhes irrelevantes.
+            
+            No contexto de imagens, os autoencoders permitem manipular o espaço latente para gerar novas imagens, interpolar entre exemplos existentes ou realizar correções automáticas em padrões incompletos.
+          </p>
+          <p>
+            O problema tratado neste trabalho é a interpolação de imagens de dígitos manuscritos do dataset MNIST de forma que a transição entre dois números seja visualmente contínua e conectada.
+          
+            Cada dígito é representado por pixels brancos (“tinta”) sobre fundo preto, e um desafio importante é evitar a ocorrência de poças desconexas — regiões de tinta isoladas que não fazem parte do desenho principal do número. A presença de poças desconectadas compromete a qualidade visual e a coerência da interpolação.
+            
+            A estratégia adotada envolve:
+            
+            Treinar um autoencoder para reconstruir imagens do MNIST.
+            
+            Gerar instâncias aleatórias no espaço latente que possam conter poças desconexas.
+            
+            Corrigir manualmente essas poças, garantindo que cada dígito seja conectado.
+            
+            Retreinar o modelo com este dataset aprimorado, ensinando o autoencoder a produzir imagens conectadas de forma consistente.
+            
+            O objetivo final é gerar sequências interpoladas entre dois dígitos quaisquer, garantindo que a “tinta” permaneça conectada durante toda a transição, produzindo vídeos suaves e visualmente coerentes.
+          </p>
           <p>
             O objetivo final é gerar vídeos interpolando duas imagens quaisquer, garantindo que a transição seja visualmente contínua e que a tinta permaneça conectada.
           </p>
@@ -70,8 +83,8 @@
         </div>
 
         <div class="col-lg-5 proj_img">
-          <h5 class="video_title">Explore Interpolação</h5>
-          <p><i>Experimente gerar transições entre dígitos conectos.</i></p>
+          <!-- <h5 class="video_title">Explore Interpolação</h5> -->
+          <!-- <p><i>Experimente gerar transições entre dígitos conectos.</i></p> -->
 
           <div id="video-area" class="position-relative mb-3">
             <!-- Placeholder para o vídeo ou canvas de interpolação -->
@@ -79,11 +92,6 @@
           </div>
 
           <div id="message-box" class="text-center" aria-live="polite"></div>
-
-          <div class="game-controls mb-2">
-            <button type="button" id="generateBtn" class="btn btn-primary mr-2 mb-2">Gerar Interpolação</button>
-            <button type="button" id="resetBtn" class="btn btn-primary mr-2 mb-2">Resetar Canvas</button>
-          </div>
         </div>
       </div>
     </section>

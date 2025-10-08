@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interpolação via AutoEncoders - Santiago</title>
+  <link rel="shortcut icon" type="image/png" href="../src/favicon.png"/>
 
+  <!-- Bootstrap -->
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        crossorigin="anonymous">
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = { tex: { inlineMath: [["$", "$"], ["\\(", "\\)"]] } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style_projects.css">
+</head>
+<body>
+
+  <!-- Navbar (mantida) -->
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav navbar-brand" href="/">SANTIAGO</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <a class="nav nav-link active" href="https://github.com/santtm">GitHub</a>
+      <a class="nav nav-link active" href="https://www.linkedin.com/in/thiago-santiago-b4858a2bb">LinkedIn</a>
+    </ul>
+  </nav>
+
+  <div class="container body_block py-4">
+    <header class="academic_block">
+      <h1 class="project_title">Interpolação via AutoEncoders</h1>
+      <p class="project_date">17/07/2025</p>
+    </header>
+
+    <section class="project_section mb-4">
+      <div class="row">
+        <div class="col-lg-7 proj_desc">
+          <h2 class="section_title">O que é Interpolação de Imagens?</h2>
+          <p>
+            Dado um dataset de imagens, como o <strong>MNIST</strong>, queremos gerar sequências de imagens que transitam de uma amostra para outra.
+            No nosso caso, cada imagem representa um dígito em escala de cinza, e a "tinta branca" define o desenho do número.
+          </p>
+          <p>
+            O desafio é gerar essas transições de forma que o desenho permaneça <strong>conexo</strong> — isto é, que não existam "poças" desconexas de tinta em cantos isolados.
+          </p>
+          <p>
+            Estrategicamente, utilizamos <strong>Autoencoders</strong>:
+          </p>
+          <ul>
+            <li>Treinamos o modelo para reconstruir imagens do MNIST.</li>
+            <li>Geramos instâncias aleatórias no espaço latente que podem conter poças.</li>
+            <li>Corrigimos manualmente essas poças para criar imagens conectadas.</li>
+            <li>Retreinamos o modelo com essas imagens corrigidas, ensinando-o a produzir desenhos sempre conectos.</li>
+          </ul>
+          <p>
+            O objetivo final é gerar vídeos interpolando duas imagens quaisquer, garantindo que a transição seja visualmente contínua e que a tinta permaneça conectada.
+          </p>
+          <p>
+            <img src="../src/mnist_examples.png" alt="Exemplo de interpolação MNIST" class="img-fluid mx-auto d-block mb-3">
+          </p>
+        </div>
+
+        <div class="col-lg-5 proj_img">
+          <h5 class="video_title">Explore Interpolação</h5>
+          <p><i>Experimente gerar transições entre dígitos conectos.</i></p>
+
+          <div id="video-area" class="position-relative mb-3">
+            <!-- Placeholder para o vídeo ou canvas de interpolação -->
+            <canvas id="interpolationCanvas" style="width:100%; height:auto; display:block;"></canvas>
+          </div>
+
+          <div id="message-box" class="text-center" aria-live="polite"></div>
+
+          <div class="game-controls mb-2">
+            <button type="button" id="generateBtn" class="btn btn-primary mr-2 mb-2">Gerar Interpolação</button>
+            <button type="button" id="resetBtn" class="btn btn-primary mr-2 mb-2">Resetar Canvas</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project_section mb-4">
+      <h2 class="section_title">Resumo</h2>
+      <p>
+        Este trabalho faz parte da iniciação científica com bolsa CNPq, sob orientação da prof. Márcia Rosana Cerioli.
+        Aborda como usar autoencoders para gerar transições suaves entre imagens do MNIST, mantendo a conectividade dos dígitos.
+      </p>
+      <p>
+        A estratégia envolve criar um dataset de imagens conectas corrigidas manualmente, que ensina o modelo a evitar poças desconexas, possibilitando interpolação confiável entre dígitos.
+      </p>
+    </section>
+
+    <section class="pdf_section mb-4">
+      <h2 class="section_title">Documentos do Projeto</h2>
+      <div class="row">
+        <div class="col-md-6 mb-3 pdf_item">
+          <div class="card h-100 text-center">
+            <div class="card-body">
+              <div class="pdf-placeholder mb-3">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.2"/>
+                </svg>
+                <div class="small font-italic">SIAC_2025.pdf</div>
+              </div>
+              <h6 class="card-title font-weight-bold">Apresentação SIAC 2025</h6>
+              <p class="card-text small text-muted">PDF da apresentação completa.</p>
+              <a class="btn btn-primary btn-block" href="../src/SIAC_2025.pdf" download>Baixar PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3 pdf_item">
+          <div class="card h-100 text-center">
+            <div class="card-body">
+              <div class="pdf-placeholder mb-3">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.2"/>
+                </svg>
+                <div class="small font-italic">Doc_IC.pdf</div>
+              </div>
+              <h6 class="card-title font-weight-bold">Texto completo</h6>
+              <p class="card-text small text-muted">Detalhes do estudo com autoencoders e interpolação.</p>
+              <a class="btn btn-primary btn-block" href="../src/Doc_IC.pdf" download>Baixar PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>santmatos0@gmail.com</p>
+  </footer>
+</body>
+</html>

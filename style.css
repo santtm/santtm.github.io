@@ -56,8 +56,8 @@ body {
 }
 
 /* proporções relativas mantendo escala visual aproximada */
-.logo.ufrj { max-width: 27%; }  /* ligeiramente maior */
-.logo.im   { max-width: 25%; }
+.logo.ufrj { max-width: 24%; }  /* ligeiramente maior */
+.logo.im   { max-width: 27%; }
 .logo.cnpq { max-width: 22%; }
 
 /* Para telas muito pequenas, encolhe proporcionalmente */

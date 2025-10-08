@@ -50,31 +50,28 @@ body {
 }
 
 .logos {
-  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap; /* nunca quebra linha */
+  gap: 1rem;         /* espaçamento entre imagens */
+  width: 100%;
+  overflow: hidden;  /* evita scroll horizontal */
 }
 
 .logo {
   height: auto;
-  max-height: 80px; /* altura máxima padrão */
+  max-width: 100%;    /* garante que a imagem não ultrapasse o container */
 }
 
-.logo.ufrj {
-  max-height: calc(80px * 1.1); /* proporcional à escala 7.5 */
-}
+/* Proporções relativas entre as imagens */
+.logo.ufrj { flex: 1.1; }
+.logo.im   { flex: 1; }
+.logo.cnpq { flex: 0.9; }
 
-.logo.im {
-  max-height: calc(80px * 1.0); /* proporcional à escala 7 */
-}
-
-.logo.cnpq {
-  max-height: calc(80px * 0.9); /* proporcional à escala 6 */
-}
-
-/* Faz as imagens se ajustar bem em telas menores */
+/* Faz as imagens encolherem proporcionalmente em telas pequenas */
 @media (max-width: 600px) {
-  .logo {
-    max-height: 50px;
-  }
+  .logo { flex: 1; } /* mantém proporção igual quando o espaço é muito pequeno */
 }
 
 /* Projetos */

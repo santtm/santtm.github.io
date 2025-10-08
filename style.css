@@ -52,12 +52,12 @@ body {
 
 .logo {
   height: auto;
-  max-width: 25%;       /* cada imagem ocupa no máximo 25% do container */
+  max-width: 30%;       /* cada imagem ocupa no máximo 25% do container */
 }
 
 /* proporções relativas mantendo escala visual aproximada */
-.logo.ufrj { max-width: 24%; }  /* ligeiramente maior */
-.logo.im   { max-width: 27%; }
+.logo.ufrj { max-width: 22%; }  /* ligeiramente maior */
+.logo.im   { max-width: 30%; }
 .logo.cnpq { max-width: 22%; }
 
 /* Para telas muito pequenas, encolhe proporcionalmente */

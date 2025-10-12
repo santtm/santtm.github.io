@@ -1,1 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Classificador Intervalar em AdaBoost - Santiago</title>
+  <link rel="shortcut icon" type="image/png" href="../src/favicon.png"/>
 
+  <!-- Bootstrap -->
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        crossorigin="anonymous">
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = { tex: { inlineMath: [["$", "$"], ["\\(", "\\)"]] } };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style_projects.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav navbar-brand" href="/">SANTIAGO</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <a class="nav nav-link active" href="https://github.com/santtm">GitHub</a>
+      <a class="nav nav-link active" href="https://www.linkedin.com/in/thiago-santiago-b4858a2bb">LinkedIn</a>
+    </ul>
+  </nav>
+
+  <div class="container body_block py-4">
+
+    <!-- Cabeçalho -->
+    <header class="academic_block">
+      <h1 class="project_title">Classificador Intervalar em AdaBoost</h1>
+      <p class="project_date">06/2024</p>
+    </header>
+
+    <!-- Introdução -->
+    <section class="project_section mb-4">
+      <h2 class="section_title">Introdução</h2>
+      <p>
+        O <b>AdaBoost</b> (Adaptive Boosting) é um algoritmo de aprendizado de máquina
+        que combina diversos classificadores fracos para formar um modelo forte e robusto.
+        Seu princípio central é treinar, em sequência, classificadores simples — como
+        <i>decision stumps</i> — de forma que cada novo modelo dê mais atenção
+        aos exemplos incorretamente classificados nas rodadas anteriores.
+      </p>
+      <p>
+        Cada stump tradicional realiza uma divisão binária simples do tipo \(x \leq k\),
+        separando o espaço de atributos em duas regiões. A predição final do AdaBoost é
+        uma combinação ponderada das saídas desses stumps, sendo o peso de cada um
+        proporcional à sua precisão individual. Dessa forma, o modelo final
+        busca minimizar o erro de classificação global de maneira adaptativa.
+      </p>
+      <p>
+        Apesar de sua eficiência, os stumps convencionais apresentam limitações,
+        especialmente quando a fronteira de decisão de uma classe
+        não é bem representada por uma única divisão linear simples.
+        Para lidar com esse tipo de cenário, este trabalho propõe
+        uma variação denominada <b>stump intervalar</b>, que utiliza regras do tipo
+        \(a \leq x \leq b\). Assim, o modelo é capaz de definir regiões contínuas de alta confiança,
+        separando o intervalo central do restante dos dados (\(x < a\) ou \(x > b\)).
+      </p>
+      <p>
+        O objetivo do estudo é avaliar o comportamento desse classificador intervalar
+        dentro da estrutura do AdaBoost e compará-lo com o stump tradicional,
+        verificando se a inclusão dessa nova forma de divisão
+        contribui para ganhos de desempenho e estabilidade nos modelos.
+      </p>
+    </section>
+
+    <!-- Proposta e Metodologia -->
+    <section class="project_section mb-4">
+      <h2 class="section_title">Proposta e Metodologia</h2>
+      <p>
+        O classificador proposto baseia-se em selecionar o maior bloco consecutivo de instâncias
+        de uma mesma classe dentro de um atributo contínuo. Assim, em vez de realizar um corte único,
+        o stump intervalar cria uma região interna (\(a, b\)) onde a classe alvo predomina,
+        enquanto o ramo alternativo abrange as regiões externas (\(x < a\) e \(x > b\)).
+      </p>
+      <p>
+        A metodologia adota três variantes do AdaBoost:
+        <ul>
+          <li><b>Limiar:</b> o modelo tradicional com stumps binários \(x \leq k\);</li>
+          <li><b>Intervalar:</b> modelo utilizando apenas stumps \(a \leq x \leq b\);</li>
+          <li><b>Combinado:</b> modelo híbrido, onde a cada rodada é escolhido o stump (limiar ou intervalar)
+              que maximiza o ganho de informação sobre a amostragem atual.</li>
+        </ul>
+      </p>
+      <p>
+        A hipótese central é que o stump intervalar pode identificar regiões de acurácia total
+        e contribuir para uma partição mais refinada do espaço de decisão,
+        mantendo a simplicidade característica do AdaBoost.
+      </p>
+    </section>
+
+    <!-- Bases de Dados -->
+    <section class="project_section mb-4">
+      <h2 class="section_title">Bases de Dados</h2>
+      <p>
+        Foram utilizados quatro conjuntos de dados amplamente conhecidos:
+        <b>Iris</b>, <b>Breast Cancer</b> e <b>Wine</b> (Scikit-learn),
+        além do <b>Weather Prediction</b> (Kaggle).
+      </p>
+      <p>
+        O último contém informações meteorológicas como precipitação média (mm),
+        temperatura máxima e mínima, e velocidade do vento (km/h),
+        com o objetivo de prever condições climáticas como
+        <i>drizzle</i>, <i>rain</i>, <i>sun</i>, <i>snow</i> e <i>fog</i>.
+      </p>
+      <p>
+        Todos os experimentos foram conduzidos sob o modelo
+        <i>one-vs-rest</i> (OVR), e sem normalização prévia dos dados,
+        uma vez que o AdaBoost trata separadamente os atributos,
+        tornando as diferenças de escala inofensivas para o processo de aprendizado.
+      </p>
+    </section>
+
+    <!-- Experimentos -->
+    <section class="project_section mb-4">
+      <h2 class="section_title">Experimentos</h2>
+      <p>
+        Para permitir a inclusão dos stumps intervalares e a comparação entre os três modelos,
+        foi implementada uma versão customizada do AdaBoost.
+        O treinamento foi realizado com número ímpar de rounds,
+        evitando empates entre classificadores e garantindo consistência nos resultados.
+      </p>
+      <p>
+        Foram analisadas as <b>curvas de aprendizado</b> de treino e teste
+        em função do número de rounds. Além disso, foi medida a proporção
+        de stumps intervalares efetivamente utilizados no modelo combinado,
+        o que permite avaliar seu impacto relativo na performance final.
+      </p>
+      <p>
+        <img src="../src/adaboost_curves.png" alt="Curvas de aprendizado AdaBoost" class="img-fluid mx-auto d-block mb-3">
+      </p>
+      <p>
+        De modo geral, observou-se que o desempenho do modelo customizado
+        é comparável ao AdaBoost nativo do Scikit-learn, servindo como base justa de comparação.
+        Em bases como <i>Iris</i> e <i>Breast Cancer</i>,
+        as curvas de aprendizado foram similares entre as abordagens,
+        enquanto no dataset <i>Weather</i> o stump intervalar apresentou instabilidade e acurácia reduzida.
+      </p>
+    </section>
+
+    <!-- Resultados -->
+    <section class="project_section mb-4">
+      <h2 class="section_title">Resultados</h2>
+      <p>
+        Foram realizadas 50 execuções de validação cruzada 5-fold para cada modelo,
+        com \(K = 5\), considerando a acurácia média dos folds
+        e intervalos de confiança de 99%.  
+      </p>
+
+      <table class="table table-striped table-bordered text-center">
+        <thead class="thead-dark">
+          <tr>
+            <th>Dataset</th>
+            <th>Modelo</th>
+            <th>Acurácia Média (%)</th>
+            <th>IC 99% (%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Iris</td><td>Limiar</td><td>90.89</td><td>[90.05, 91.74]</td></tr>
+          <tr><td>Iris</td><td>Intervalar</td><td>91.83</td><td>[91.29, 92.36]</td></tr>
+          <tr><td>Iris</td><td>Combinado</td><td>91.93</td><td>[91.34, 92.52]</td></tr>
+
+          <tr><td>Breast Cancer</td><td>Limiar</td><td>90.13</td><td>[89.78, 90.48]</td></tr>
+          <tr><td>Breast Cancer</td><td>Intervalar</td><td>89.92</td><td>[89.38, 90.47]</td></tr>
+          <tr><td>Breast Cancer</td><td>Combinado</td><td>90.66</td><td>[90.20, 91.11]</td></tr>
+
+          <tr><td>Wine</td><td>Limiar</td><td>91.03</td><td>[90.26, 91.80]</td></tr>
+          <tr><td>Wine</td><td>Intervalar</td><td>85.86</td><td>[85.07, 86.65]</td></tr>
+          <tr><td>Wine</td><td>Combinado</td><td>90.60</td><td>[89.82, 91.37]</td></tr>
+
+          <tr><td>Weather</td><td>Limiar</td><td>84.66</td><td>[84.63, 84.68]</td></tr>
+          <tr><td>Weather</td><td>Intervalar</td><td>49.81</td><td>[46.83, 52.78]</td></tr>
+          <tr><td>Weather</td><td>Combinado</td><td>78.48</td><td>[76.47, 80.48]</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Conclusão -->
+    <section class="project_section mb-4">
+      <h2 class="section_title">Conclusão</h2>
+      <p>
+        O estudo mostrou que o classificador intervalar não deve ser descartado,
+        embora isoladamente não apresente ganhos consistentes.
+        Em conjunto com o modelo tradicional (versão combinada),
+        ele pode contribuir positivamente em certos contextos, sugerindo que
+        a detecção de padrões locais pode ser útil quando equilibrada por stumps convencionais.
+      </p>
+      <p>
+        O baixo desempenho observado em alguns datasets indica
+        que unir as regiões \(x < a\) e \(x > b\) sob uma única classe
+        pode ser uma limitação estrutural do modelo.
+        Uma possível extensão seria permitir que cada região externa fosse tratada separadamente.
+      </p>
+      <p>
+        Futuros estudos podem explorar abordagens topológicas —
+        como mapas auto-organizáveis — para compreender a
+        organização espacial das decisões e identificar quais distribuições
+        de dados favorecem o uso do classificador intervalar.
+      </p>
+    </section>
+
+    <!-- Resumo -->
+    <section class="project_section mb-4">
+      <h2 class="section_title">Resumo</h2>
+      <p>
+        Este trabalho propõe uma modificação do AdaBoost tradicional,
+        substituindo os stumps binários por um classificador intervalar
+        que define regiões contínuas de decisão. Foram implementadas
+        três variações (limiar, intervalar e combinada)
+        e testadas sobre quatro bases de dados públicas (Iris, Breast Cancer,
+        Wine e Weather Prediction).  
+        Os resultados indicam que o modelo intervalar isolado não supera
+        o AdaBoost clássico, mas a versão híbrida demonstra potencial
+        em capturar padrões locais de alta acurácia sem comprometer
+        a estabilidade geral do modelo.
+      </p>
+    </section>
+
+    <!-- PDF -->
+    <section class="pdf_section mb-4">
+      <h2 class="section_title">Documentos do Projeto</h2>
+      <ul>
+        <li><a href="../pdfs/adaboost_alternativo.pdf" target="_blank">Relatório Completo (PDF)</a></li>
+      </ul>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>santmatos0@gmail.com</p>
+  </footer>
+</body>
+</html>

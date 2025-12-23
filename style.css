@@ -119,8 +119,6 @@ h2.current_projects {
 footer {
   text-align: center;
   padding: 1rem;
-  background-color: var(--dark-electric-blue);
-  color: var(--white);
 }
 
 footer p {
